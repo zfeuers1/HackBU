@@ -132,7 +132,7 @@ void Fire(Player &player, Box GameBoard[][4])
 
       
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
-        //DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+        DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
     }
     
     
