@@ -33,12 +33,14 @@ Player::Player(bool whichPlayer){
         color.G = 244;
         color.B = 11;
         color.A = 255;
+        player = 0;
     }else{
         x = 450;
         color.R = 110;
         color.G = 144;
         color.B = 101;
         color.A = 255;
+        player = 1;
     }
     
     y = 115;

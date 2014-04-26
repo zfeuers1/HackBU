@@ -19,6 +19,7 @@
 
 #include "Player.h"
 #include "Box.h"
+#include "PowerBar.h"
 
 using namespace std;
 
@@ -27,5 +28,6 @@ void RenderBox(Box &box);
 
 void RenderPlayer(Player &play);
 
+void RenderPowerBar(PowerBar &powerbar);
 
 #endif /* defined(__SDL_OpenGL_Template__Render__) */
