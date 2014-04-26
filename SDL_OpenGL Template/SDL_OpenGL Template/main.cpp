@@ -63,11 +63,15 @@ int main(int argc, char * argv[])//** argv
     //game is 600 by 500 starting at (100,75)
 
 
-    //Box firstBox(600,100);
+    
+    PowerBar power_bar1(PLAYER1);
+    PowerBar power_bar2(PLAYER2);
+    
+    
     Player player1(PLAYER1);
     Player player2(PLAYER2);
-    player1.player = 0;
-    player2.player = 1;
+   
+    
 
     Box grid[4][4];
     
@@ -124,7 +128,6 @@ int main(int argc, char * argv[])//** argv
     player_input last_input;
     
     
-    int x = 0;
     
 	while (runProgram) //Begin main program loop
 	{
@@ -140,7 +143,16 @@ int main(int argc, char * argv[])//** argv
             runProgram = false;
 
         }
+        
+        if (power_bar1.isEmpty())
+        {
+            runProgram  = false;
+        }
     
+        if (power_bar2.isEmpty())
+        {
+            runProgram =  false; 
+        }
         
         
         
@@ -179,6 +191,20 @@ int main(int argc, char * argv[])//** argv
             
         }
         
+        
+        
+        if (input.v_pressed && !last_input.v_pressed)
+        {
+            power_bar1.DecreaseHealth();
+        }
+        if (input.b_pressed && !last_input.b_pressed)
+        {
+            power_bar2.DecreaseHealth();
+        }
+        
+        
+        
+        
         last_input = input;
         
         
@@ -189,7 +215,7 @@ int main(int argc, char * argv[])//** argv
      
         
         //Logic Goes Here
-        x++;
+
         
         
         
@@ -219,7 +245,9 @@ int main(int argc, char * argv[])//** argv
         RenderPlayer(player1);
         RenderPlayer(player2);
         
-        
+        RenderPowerBar(power_bar1);
+        RenderPowerBar(power_bar2);
+
         
         ///////////////////////////////////////////
 		glPopMatrix();//end
@@ -344,7 +372,11 @@ GLuint Initialize_Background_Image()
 {
     GLuint TextureID = 0;
     
+
     SDL_Surface* Surface = IMG_Load("/Users/ipatka/Documents/Repositories/HackBU/SDL_OpenGL Template/background.png");
+
+    //SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+
     
     glGenTextures(1, &TextureID);
     glBindTexture(GL_TEXTURE_2D, TextureID);

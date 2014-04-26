@@ -31,7 +31,15 @@ void get_keyboard_input(player_input *input)
     if ( SDL_PollEvent(&event) )
     {
         
-
+        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_v))
+            input->v_pressed = true;
+        else
+            input->v_pressed = false;
+        
+        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_b))
+            input->b_pressed = true;
+        else
+            input->b_pressed = false;
         
 
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_a))

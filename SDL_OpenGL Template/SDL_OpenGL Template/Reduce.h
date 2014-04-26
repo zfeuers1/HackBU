@@ -14,11 +14,11 @@
 #include "Box.h"
 #include "Player.h"
 
-struct array_coordinate {
+/*struct array_coordinate {
     int x;
     int y;
     bool claimed;
-};
+};*/
 
 void Reduce(Box GameBoard[][4], int rows, int columns, int *count);
 

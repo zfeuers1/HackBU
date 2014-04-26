@@ -32,6 +32,9 @@ struct player_input{
     bool p2_down;
     bool p2_fire;
     
+    bool b_pressed;
+    bool v_pressed;
+    
     bool quit;
 };
 
