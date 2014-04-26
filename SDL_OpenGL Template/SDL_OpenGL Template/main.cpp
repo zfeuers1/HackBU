@@ -376,10 +376,10 @@ int main(int argc, char * argv[])//** argv
             
             if (counter2 == 60)
             {
-                player1.color.R = 255;
-                player1.color.G = 104;
-                player1.color.B = 11;
-                player1.color.A = 65;
+                player1.color.R = 180;
+                player1.color.G = 10;
+                player1.color.B = 185;
+                player1.color.A = 55;
                 counter2 = 0;
             }
             counter2++;
@@ -405,9 +405,9 @@ int main(int argc, char * argv[])//** argv
         if (counter3 == 60)
         {
             player2.color.R = 110;
-            player2.color.G = 144;
+            player2.color.G = 244;
             player2.color.B = 255;
-            player2.color.A = 65;
+            player2.color.A = 85;
             counter3 = 0;
         }
         
@@ -628,7 +628,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);

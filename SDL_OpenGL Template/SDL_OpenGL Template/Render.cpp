@@ -74,7 +74,7 @@ void RenderBox(Box &box)
         r = 10;
         g = 240;
         b = 200;
-        a = 65;
+        a = 85;
       
     }
     else if (box.color == "color2")
@@ -82,13 +82,13 @@ void RenderBox(Box &box)
         r = 210;
         g = 240;
         b = 10;
-        a = 65;
+        a = 85;
     }
     else if(box.color =="color3"){
         r = 195;
         g = 10;
         b = 185;
-        a = 35;
+        a = 55;
     }
 
     

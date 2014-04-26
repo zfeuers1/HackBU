@@ -33,17 +33,17 @@ void Player::moveUp(){
 Player::Player(bool whichPlayer){
     if (whichPlayer == 0) {
         x = 55;
-        color.R = 255;
-        color.G = 104;
-        color.B = 11;
-        color.A = 65;
+        color.R = 180;
+        color.G = 10;
+        color.B = 185;
+        color.A = 55;
         player = 0;
     }else{
         x = 490;
         color.R = 110;
-        color.G = 144;
+        color.G = 244;
         color.B = 255;
-        color.A = 65;
+        color.A = 85;
         player = 1;
     }
     height = 25;
