@@ -19,6 +19,8 @@
 #include "Player.h"
 #include "Render.h"
 
+#include "keyboard_input.h"
+
 
 
 
@@ -36,7 +38,7 @@ int main(int argc, char * argv[])//** argv
     //game is 600 by 500 starting at (100,75)
 
     Box firstBox(100,100);
-
+    Player player1(0);
 
     
     int screenWidth = 1000;
@@ -58,28 +60,23 @@ int main(int argc, char * argv[])//** argv
 	left = false;
 	right = false;
     
-	SDL_Event event;
+    /*
+     *  Keyboard input stuff
+     */
+    player_input input;
+    
     
 	while (runProgram) //Begin main program loop
 	{
-		//Events are tied to key presses, mouse movements, etc
-		while ( SDL_PollEvent(&event) )
-		{
-            if (event.type == SDL_MOUSEBUTTONDOWN)
-            {
-                cout << "HEy";
-            }
-		    if (event.type == SDL_QUIT)
-			{
-                runProgram = false;
-			}
-            
-		    if ( (event.type == SDL_KEYUP) && (event.key.keysym.sym == SDLK_ESCAPE))//release a key
-			{
-                runProgram = false;
-			}
-        }
+		get_keyboard_input(&input);
         
+        
+        
+        if (input.quit == true)
+            runProgram = false;
+        if(input.p1_down){
+            player1.moveDown();
+        }
         
         //Logic Goes Here
         
@@ -96,7 +93,7 @@ int main(int argc, char * argv[])//** argv
         
     
         RenderBox(firstBox);
-    
+        RenderPlayer(player1);
         
         
         ///////////////////////////////////////////
