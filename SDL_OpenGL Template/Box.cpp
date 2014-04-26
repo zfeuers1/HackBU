@@ -10,8 +10,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define WIDTH 75
-#define HEIGHT 75
+#define WIDTH 30
+#define HEIGHT 30
 
 using namespace std;
 

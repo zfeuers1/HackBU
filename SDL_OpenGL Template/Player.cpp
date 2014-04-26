@@ -9,10 +9,10 @@
 #include "Player.h"
 #include "Box.h"
 
-#define BoxHeight 75
-#define positions 4
+#define BoxHeight 30
+#define positions 8
 
-int jump = BoxHeight + 5;
+int jump = BoxHeight + 10;
 
 void Player::moveDown(){
     if (position != positions - 1) {
@@ -32,23 +32,23 @@ void Player::moveUp(){
 
 Player::Player(bool whichPlayer){
     if (whichPlayer == 0) {
-        x = 65;
+        x = 55;
         color.R = 255;
         color.G = 104;
         color.B = 11;
         color.A = 65;
         player = 0;
     }else{
-        x = 500;
+        x = 490;
         color.R = 110;
         color.G = 144;
         color.B = 255;
         color.A = 65;
         player = 1;
     }
-    height = 35;
-    width = 35;
-    y = (BoxHeight / 2) + 100 - (height/2);
+    height = 25;
+    width = 60;
+    y = (BoxHeight / 2) + 98 - (height/2);
     position = 0;
     
 }

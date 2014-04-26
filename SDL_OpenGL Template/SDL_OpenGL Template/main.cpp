@@ -30,8 +30,8 @@
 #define SCREENWIDTH 1000
 #define SCREENHEIGHT 650
 
-#define ROWS 4
-#define COLUMNS 4
+#define ROWS 8
+#define COLUMNS 8
 
 
 using namespace std;
@@ -51,7 +51,7 @@ int main(int argc, char * argv[])//** argv
 
     int x_pos = 0;
     int y_pos = 0;
-    int distance_between = 80;
+    int distance_between = 40;
 
 
     bool PLAYER1 = 0;
@@ -73,10 +73,10 @@ int main(int argc, char * argv[])//** argv
    
     
 
-    Box grid[4][4];
+    Box grid[8][8];
     
-    for (int i =0; i<4; i++) {
-        for (int j=0; j<4; j++) {
+    for (int i =0; i<8; i++) {
+        for (int j=0; j<8; j++) {
             grid[i][j].set(145 + x_pos, 100 + y_pos);
             grid[i][j].Random();
             grid[i][j].setArrayPositions(i, j);
@@ -245,8 +245,8 @@ int main(int argc, char * argv[])//** argv
         
         //things to render goes here
         
-        for (int i = 0; i <4; i++) {
-            for(int j=0; j<4;j++){
+        for (int i = 0; i <8; i++) {
+            for(int j=0; j<8;j++){
                  RenderBox(grid[i][j]);
             }
         }
@@ -383,7 +383,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);

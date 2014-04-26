@@ -20,7 +20,7 @@ struct array_coordinate {
     bool claimed;
 };
 
-bool Fire(Player &player, Box GameBoard[][4]);
+bool Fire(Player &player, Box GameBoard[][8]);
 
 
 #endif /* defined(__HAX__Fire__) */

@@ -20,7 +20,7 @@
     bool claimed;
 };*/
 
-void Reduce(Box GameBoard[][4], int rows, int columns, int *count);
+void Reduce(Box GameBoard[][8], int rows, int columns, int *count);
 
 
 #endif /* defined(__HAX__Reduce__) */
