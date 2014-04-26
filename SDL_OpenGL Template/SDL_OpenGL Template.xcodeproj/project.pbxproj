@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14798D32190B390F0081C96A /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14798D30190B390F0081C96A /* Box.cpp */; };
+		14798D35190B3A070081C96A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14798D33190B3A070081C96A /* Player.cpp */; };
 		14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CB190B2DB100642EFA /* SDL_image.framework */; };
 		14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CC190B2DB100642EFA /* SDL.framework */; };
 		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
@@ -31,6 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14798D30190B390F0081C96A /* Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
+		14798D31190B390F0081C96A /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		14798D33190B3A070081C96A /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		14798D34190B3A070081C96A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		14DEA6CB190B2DB100642EFA /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
 		14DEA6CC190B2DB100642EFA /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
@@ -64,6 +70,10 @@
 		92FDE9FF190A28D100DD9DFC = {
 			isa = PBXGroup;
 			children = (
+				14798D33190B3A070081C96A /* Player.cpp */,
+				14798D34190B3A070081C96A /* Player.h */,
+				14798D30190B390F0081C96A /* Box.cpp */,
+				14798D31190B390F0081C96A /* Box.h */,
 				92FDEA1D190A29F500DD9DFC /* OpenGL.framework */,
 				92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */,
 				92FDEA19190A29E700DD9DFC /* Foundation.framework */,
@@ -147,6 +157,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14798D35190B3A070081C96A /* Player.cpp in Sources */,
+				14798D32190B390F0081C96A /* Box.cpp in Sources */,
 				92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */,
 				92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */,
 			);
