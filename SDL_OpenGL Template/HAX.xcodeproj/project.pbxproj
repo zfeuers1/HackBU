@@ -80,7 +80,7 @@
 				92FDEA1D190A29F500DD9DFC /* OpenGL.framework */,
 				92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */,
 				92FDEA19190A29E700DD9DFC /* Foundation.framework */,
-				92FDEA0A190A28D100DD9DFC /* Game */,
+				92FDEA0A190A28D100DD9DFC /* SDL_OpenGL Template */,
 				92FDEA09190A28D100DD9DFC /* Products */,
 				92FDEA16190A296100DD9DFC /* SDLMain.h */,
 				92FDEA17190A296100DD9DFC /* SDLMain.m */,
@@ -97,7 +97,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		92FDEA0A190A28D100DD9DFC /* Game */ = {
+		92FDEA0A190A28D100DD9DFC /* SDL_OpenGL Template */ = {
 			isa = PBXGroup;
 			children = (
 				92FDEA0B190A28D100DD9DFC /* main.cpp */,
@@ -107,7 +107,6 @@
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
 			);
-			name = Game;
 			path = "SDL_OpenGL Template";
 			sourceTree = "<group>";
 		};
