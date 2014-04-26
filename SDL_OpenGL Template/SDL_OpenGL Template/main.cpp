@@ -20,7 +20,7 @@
 #include "Render.h"
 
 #include "keyboard_input.h"
-#include "../src/SOIL.h"
+
 
 
 

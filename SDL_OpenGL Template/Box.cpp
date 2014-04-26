@@ -56,5 +56,11 @@ void Box::Random(){
 }
 
 
+void Box::Drop(Box &aboveBox){
+    
+    color = aboveBox.color;
+    
+}
+
 
 

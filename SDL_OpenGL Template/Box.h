@@ -33,6 +33,7 @@ public:
     Box();
     void set(int xCord, int yCord);
     void Random();
+    void Drop(Box &aboveBox);
 };
 
 #endif /* defined(__SDL_OpenGL_Template__Box__) */
