@@ -10,6 +10,7 @@
 #define __SDL_OpenGL_Template__Box__
 
 #include <iostream>
+#import "Foundation/Foundation.h"
 
 using namespace std;
 
@@ -29,6 +30,9 @@ public:
     int width;
     int height;
     Box(int xCord, int yCord);
+    Box();
+    void set(int xCord, int yCord);
+    void Random();
 };
 
 #endif /* defined(__SDL_OpenGL_Template__Box__) */

@@ -8,7 +8,7 @@
 
 #include "Player.h"
 
-int jump = 50;
+int jump = 55;
 
 void Player::moveDown(){
     if (position != 3) {
@@ -28,7 +28,7 @@ void Player::moveUp(){
 
 Player::Player(bool whichPlayer){
     if (whichPlayer == 0) {
-        x = 100;
+        x = 40;
         color.R = 245;
         color.G = 244;
         color.B = 11;
@@ -41,7 +41,7 @@ Player::Player(bool whichPlayer){
         color.A = 255;
     }
     
-    y = 100;
+    y = 115;
     position = 0;
     height = 20;
     width = 20;

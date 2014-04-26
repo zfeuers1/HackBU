@@ -36,12 +36,29 @@ void Setup_Window_And_Rendering(int screenWidth, int screenHeight);
 
 int main(int argc, char * argv[])//** argv
 {
+    
+    int x = 0;
+    int y = 0;
 
     //game is 600 by 500 starting at (100,75)
+
 
     Box firstBox(100,100);
     Player player1(PLAYER1);
     Player player2(PLAYER2);
+
+    Box grid[4][4];
+    
+    for (int i =0; i<4; i++) {
+        for (int j=0; j<4; j++) {
+            grid[i][j].set(100 + x, 100 + y);
+            grid[i][j].Random();
+            y = y + 55;
+        }
+        x = x + 55;
+        y = 0;
+    }
+    
 
     
     int screenWidth = 1000;
@@ -139,8 +156,12 @@ int main(int argc, char * argv[])//** argv
         
         //things to render goes here
         
-    
-        RenderBox(firstBox);
+        for (int i = 0; i <4; i++) {
+            for(int j=0; j<4;j++){
+                 RenderBox(grid[i][j]);
+            }
+        }
+       
 
         RenderPlayer(player1);
         RenderPlayer(player2);
