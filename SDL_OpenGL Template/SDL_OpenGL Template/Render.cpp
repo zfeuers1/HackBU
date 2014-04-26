@@ -8,21 +8,23 @@
 
 #include "Render.h"
 
-#define offset_x 100
+#define offset_x 101
 #define offset_y 75
+#define Extra 28
 
 
 void RenderPowerBar(PowerBar &powerbar)
 {
     unsigned char r,g,b,a;
     
+
     
     if (powerbar.color == "color1")
     {
         r = 0 + (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
         g = 255 - (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
         b = 0;
-        a = 125;
+        a = 65;
         
     }
     else if (powerbar.color == "color2")
@@ -30,16 +32,16 @@ void RenderPowerBar(PowerBar &powerbar)
         r = 0 + (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
         g = 255 - (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
         b = 0;
-        a = 125;
+        a = 65;
     }
 
     
     glBegin(GL_QUADS);
     glColor4ub(r,g,b,a);
-    glVertex2f(powerbar.x + offset_x, powerbar.y + offset_y);
-    glVertex2f(powerbar.x + powerbar.width + offset_x, powerbar.y + offset_y);
-    glVertex2f(powerbar.x + powerbar.width+ offset_x, powerbar.y + powerbar.height + offset_y);
-    glVertex2f(powerbar.x + offset_x, powerbar.y + powerbar.height + offset_y);
+    glVertex2f(powerbar.x + offset_x , powerbar.y + offset_y+Extra);
+    glVertex2f(powerbar.x + powerbar.width + offset_x , powerbar.y + offset_y +Extra);
+    glVertex2f(powerbar.x + powerbar.width+ offset_x, powerbar.y + powerbar.height + offset_y+Extra);
+    glVertex2f(powerbar.x + offset_x, powerbar.y + powerbar.height + offset_y+Extra);
     glEnd();
 }
 
@@ -58,7 +60,7 @@ void RenderBox(Box &box)
         r = 10;
         g = 240;
         b = 200;
-        a = 125;
+        a = 65;
       
     }
     else if (box.color == "color2")
@@ -66,6 +68,11 @@ void RenderBox(Box &box)
         r = 210;
         g = 240;
         b = 10;
+        a = 65;
+    }else if(box.color =="color3"){
+        r = 255;
+        g = 255;
+        b = 255;
         a = 125;
     }
     else if(box.color == "color3")

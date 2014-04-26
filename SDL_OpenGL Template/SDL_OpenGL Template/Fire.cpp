@@ -132,8 +132,10 @@ void Fire(Player &player, Box GameBoard[][4])
         }
 
       
+
 //        SortBoxes(target_coordinates_to_be_destroyed, &target_count);
 //        DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+
     }
     
     
@@ -389,11 +391,11 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
         targets_to_be_destroyed[j].x = tempArray[j].x;
         targets_to_be_destroyed[j].y =  tempArray[j].y;
     }
-    cout << "Sorted" << endl;
+    /*cout << "Sorted" << endl;
     for(int i=0;i<*count;i++){
         
         cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
-    }
+    }*/
     
     
     for(int row = 0; row< *count; row++){
@@ -418,11 +420,11 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
         }
     }
     
-    cout << "Sorted" << endl;
+    /*cout << "Sorted" << endl;
     for(int i=0;i<*count;i++){
         
         cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
-    }
+    }*/
     
 
     
@@ -433,7 +435,7 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
     
     for(int colm = 0; colm < 4; colm++){
 
-        for(int i =0; i < *count ; i++){
+        for(int i =0; i < 4 ; i++){
             if(targets_to_be_destroyed[i].x == colm){
                 
                 if(targets_to_be_destroyed[i].y == 0){

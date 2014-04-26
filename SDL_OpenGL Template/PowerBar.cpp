@@ -8,8 +8,9 @@
 
 #include "PowerBar.h"
 
-#define WIDTH 75
-#define HEIGHT 475
+
+#define WIDTH 25
+#define HEIGHT 450
 
 
 PowerBar::PowerBar(unsigned char PlayerNumber)
@@ -36,12 +37,12 @@ void PowerBar::setFrame()
     
     if (Player == 0)
     {
-        x = 30;
+        x = 0;
         color = "color1";
     }
     else
     {
-        x = 500;
+        x = 579;
         color = "color2";
     }
     

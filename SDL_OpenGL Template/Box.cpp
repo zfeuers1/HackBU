@@ -74,6 +74,7 @@ void Box::Drop(Box &aboveBox){
     
     color = "color3";
     
+
 }
 
 void Box::DropTop(){
