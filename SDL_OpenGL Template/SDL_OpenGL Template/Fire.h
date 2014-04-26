@@ -14,6 +14,11 @@
 #include "Box.h"
 #include "Player.h"
 
+struct array_coordinate {
+    int x;
+    int y;
+    bool claimed;
+};
 
 void Fire(Player &player, Box GameBoard[][4]);
 

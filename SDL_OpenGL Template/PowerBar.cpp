@@ -8,6 +8,7 @@
 
 #include "PowerBar.h"
 
+
 #define WIDTH 25
 #define HEIGHT 450
 
@@ -45,7 +46,7 @@ void PowerBar::setFrame()
         color = "color2";
     }
     
-    y = 0 + (total_health - health_remaining);
+    y = 25 + (total_health - health_remaining);
 
 }
 
