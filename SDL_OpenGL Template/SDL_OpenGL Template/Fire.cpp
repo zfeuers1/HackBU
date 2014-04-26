@@ -323,7 +323,7 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
     
     for(int i=0;i<*count;i++){
         
-        if(targets_to_be_destroyed[i].y > 3){
+        if(targets_to_be_destroyed[i].y > 3 || targets_to_be_destroyed[i].y < 0){
             targets_to_be_destroyed[i].y = 0;
         }
     }
@@ -348,17 +348,24 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                 
                 if(targets_to_be_destroyed[i].y == 0){
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].DropTop();
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
                 }else if(targets_to_be_destroyed[i].y == 1){
                 
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
                                                                                                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                    
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].DropTop();
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].claimed=false;
                 }else if(targets_to_be_destroyed[i].y == 2){
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
                                                                                                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -1].Drop(
                                                                                                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2].DropTop();
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
                 
                 }else{
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
@@ -369,7 +376,10 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
                                                                                                   GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3].DropTop();
-                
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
                 }
                 
             }else{
