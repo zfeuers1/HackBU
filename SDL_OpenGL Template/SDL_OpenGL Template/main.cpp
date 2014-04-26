@@ -50,6 +50,11 @@ int main(int argc, char * argv[])//** argv
 	Setup_Window_And_Rendering(screenWidth, screenHeight);
     
     
+
+    
+
+    
+    
     cout << "SDL is Running\n";
     cout << "OpenGL is Running\n";
 
@@ -81,6 +86,8 @@ int main(int argc, char * argv[])//** argv
         //Logic Goes Here
         
         
+        
+      
       
         
         //Render to the screen
@@ -93,6 +100,7 @@ int main(int argc, char * argv[])//** argv
         
     
         RenderBox(firstBox);
+
         RenderPlayer(player1);
         
         
@@ -134,15 +142,6 @@ int main(int argc, char * argv[])//** argv
         SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL); //window size, rendering settings
 
         
-        // load sample.png into image
-        SDL_Surface *image;
-        image=IMG_Load("background.png");
-        if(!image) {
-            printf("IMG_Load: %s\n", IMG_GetError());
-            // handle error
-        }
-    
-        
         //draw something every frame
         glClearColor(1,1,1,1); // color used to clear screen every frame
         
@@ -156,5 +155,8 @@ int main(int argc, char * argv[])//** argv
         
         glDisable(GL_DEPTH_TEST);//disable depth checking for 2D rendering
         
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
+       
     }
