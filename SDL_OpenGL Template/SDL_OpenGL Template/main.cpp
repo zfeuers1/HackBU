@@ -25,22 +25,37 @@
 
 
 
+#define SCREENWIDTH 1000
+#define SCREENHEIGHT 650
+
+#define ROWS 4
+#define COLUMNS 4
+
 
 using namespace std;
 
 void Initialize_Memory_Attributes();
 void Setup_Window_And_Rendering(int screenWidth, int screenHeight);
-void BackGround();
+void Render_Background_Image(GLuint textureID);
+GLuint Initialize_Background_Image();
+
+
+void Initialize_Gameboard();
 
 
 int main(int argc, char * argv[])//** argv
 {
-   
+    
+    
     int x = 0;
     int y = 0;
     
     bool PLAYER1 = 0;
     bool PLAYER2 = 1;
+
+    int x_pos = 0;
+    int y_pos = 0;
+
 
     //game is 600 by 500 starting at (100,75)
 
@@ -55,24 +70,48 @@ int main(int argc, char * argv[])//** argv
     
     for (int i =0; i<4; i++) {
         for (int j=0; j<4; j++) {
-            grid[i][j].set(100 + x, 100 + y);
+            grid[i][j].set(100 + x_pos, 100 + y_pos);
             grid[i][j].Random();
             grid[i][j].setArrayPositions(i, j);
-            y = y + 55;
+            y_pos = y_pos + 55;
         }
-        x = x + 55;
-        y = 0;
+        x_pos = x_pos + 55;
+        y_pos = 0;
     }
     
 
     
-    int screenWidth = 1000;
-	int screenHeight = 650;
+ 
     
     //initialize SDL hardware
 	SDL_Init(SDL_INIT_EVERYTHING);
     Initialize_Memory_Attributes();
-	Setup_Window_And_Rendering(screenWidth, screenHeight);
+	Setup_Window_And_Rendering(SCREENWIDTH, SCREENHEIGHT);
+    GLuint texture;
+    //texture = Initialize_Background_Image();
+    
+
+    GLuint TextureID = 0;
+    
+    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+    
+    glGenTextures(1, &TextureID);
+    glBindTexture(GL_TEXTURE_2D, TextureID);
+    
+    int Mode = GL_RGBA;
+    
+    if(Surface->format->BytesPerPixel == 4) {
+        Mode = GL_RGBA;
+    }
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, Mode, SCREENWIDTH, SCREENHEIGHT, 0, Mode, GL_UNSIGNED_BYTE, Surface->pixels);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    
+    glBindTexture(GL_TEXTURE_2D, TextureID);
+    
     
     
 
@@ -167,13 +206,13 @@ int main(int argc, char * argv[])//** argv
         //Render to the screen
 		glClear(GL_COLOR_BUFFER_BIT);
 		glPushMatrix();//start phase
-		glOrtho(0,screenWidth,screenHeight,0,-1,1);//set the matrix
+		glOrtho(0,SCREENWIDTH,SCREENHEIGHT,0,-1,1);//set the matrix
         /////////////////////////////////////////////
         
         
-        //BackGround();
+        //Render_Background_Image(texture);
        
-        
+
         
         //things to render goes here
         
@@ -185,9 +224,10 @@ int main(int argc, char * argv[])//** argv
        
 
         RenderPlayer(player1);
-
-
         RenderPlayer(player2);
+        
+        
+        
         ///////////////////////////////////////////
 		glPopMatrix();//end
 		SDL_GL_SwapBuffers();//re-draws
@@ -202,6 +242,52 @@ int main(int argc, char * argv[])//** argv
     
     return 0;
 }//end main
+
+
+
+
+
+/*
+ 
+
+  ___       _ _      ____
+ |_ _|_ __ (_) |_   / ___| __ _ _ __ ___   ___
+  | || '_ \| | __| | |  _ / _` | '_ ` _ \ / _ \
+  | || | | | | |_  | |_| | (_| | | | | | |  __/
+ |___|_| |_|_|\__|  \____|\__,_|_| |_| |_|\___|
+ 
+ 
+ 
+ */
+
+
+void Initialize_Gameboard()
+{
+    
+}
+
+
+
+
+
+
+
+
+
+
+/*
+ 
+
+  ____  ____  _        _____                    ____ _       ___       _ _
+ / ___||  _ \| |      / / _ \ _ __   ___ _ __  / ___| |     |_ _|_ __ (_) |_
+ \___ \| | | | |     / / | | | '_ \ / _ \ '_ \| |  _| |      | || '_ \| | __|
+ _ __) | |_| | |___ / /| |_| | |_) |  __/ | | | |_| | |___   | || | | | | |_
+ |____/|____/|_____/_/  \___/| .__/ \___|_| |_|\____|_____| |___|_| |_|_|\__|
+                             |_|
+ 
+ 
+ */
+
 
 
     void Initialize_Memory_Attributes()
@@ -244,11 +330,11 @@ int main(int argc, char * argv[])//** argv
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
-        glEnable(GL_TEXTURE_2D);
        
     }
 
-void BackGround(){
+GLuint Initialize_Background_Image()
+{
     GLuint TextureID = 0;
     
     SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
@@ -256,13 +342,13 @@ void BackGround(){
     glGenTextures(1, &TextureID);
     glBindTexture(GL_TEXTURE_2D, TextureID);
     
-    int Mode = GL_RGB;
+    int Mode = GL_RGBA;
     
     if(Surface->format->BytesPerPixel == 4) {
         Mode = GL_RGBA;
     }
     
-    glTexImage2D(GL_TEXTURE_2D, 0, Mode, 1000, 650, 0, Mode, GL_UNSIGNED_BYTE, Surface->pixels);
+    glTexImage2D(GL_TEXTURE_2D, 0, Mode, SCREENWIDTH, SCREENHEIGHT, 0, Mode, GL_UNSIGNED_BYTE, Surface->pixels);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -270,7 +356,15 @@ void BackGround(){
     
     glBindTexture(GL_TEXTURE_2D, TextureID);
     
+    return TextureID;
+}
+
+void Render_Background_Image(GLuint textureID)
+{
+  
+    
     // For Ortho mode, of course
+ 
     int X = 0;
     int Y = 0;
     int Width = 1000;
