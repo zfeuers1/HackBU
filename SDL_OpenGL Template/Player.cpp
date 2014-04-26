@@ -8,7 +8,7 @@
 
 #include "Player.h"
 
-int jump = 55;
+int jump = 82;
 
 void Player::moveDown(){
     if (position != 3) {

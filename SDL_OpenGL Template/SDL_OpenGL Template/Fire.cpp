@@ -86,6 +86,13 @@ void Fire(Player &player, Box GameBoard[][4])
         
         //then Refill boxes
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
+        
+        cout << "After Sorted" << endl;
+        for(int i=0;i<target_count;i++){
+            
+            cout << target_coordinates_to_be_destroyed[i].x << ", " << target_coordinates_to_be_destroyed[i].y << endl;
+        }
+        
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
 
         
@@ -125,7 +132,7 @@ void Fire(Player &player, Box GameBoard[][4])
 
       
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
-        DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+        //DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
     }
     
     
@@ -342,13 +349,16 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
 void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int *count){
     
     for(int colm = 0; colm < 4; colm++){
-    
+
         for(int i =0; i < *count ; i++){
             if(targets_to_be_destroyed[i].x == colm){
                 
                 if(targets_to_be_destroyed[i].y == 0){
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].DropTop();
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                    cout << "Colm = " << colm << endl;
+                    cout << "Destroy Top" << endl;
+                    
                 }else if(targets_to_be_destroyed[i].y == 1){
                 
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
@@ -357,6 +367,10 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].DropTop();
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].claimed=false;
+                    cout << "Colm = " << colm << endl;
+
+                    cout << "Destroy 2" << endl;
+                    cout << "Destroy Top" << endl;
                 }else if(targets_to_be_destroyed[i].y == 2){
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
                                                                                                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
@@ -366,8 +380,13 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                    cout << "Colm = " << colm << endl;
+
+                    cout << "Destroy 3" << endl;
+                    cout << "Destroy 2" << endl;
+                    cout << "Destroy Top" << endl;
                 
-                }else{
+                }else if(targets_to_be_destroyed[i].y == 3){
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
                                                                                                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
                     
@@ -380,14 +399,22 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
                     GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                    cout << "Colm = " << colm << endl;
+
+                    cout << "Destroy 4" << endl;
+                    cout << "Destroy 3" << endl;
+                    cout << "Destroy 2" << endl;
+                    cout << "Destroy Top" << endl;
+                }else{
+                    break;
                 }
                 
             }else{
                 break;
             }
+        
+    
         }
-    
-    
     
     }
     
