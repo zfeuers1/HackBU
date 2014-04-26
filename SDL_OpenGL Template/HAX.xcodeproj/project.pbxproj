@@ -18,6 +18,7 @@
 		92FDEA1E190A29F500DD9DFC /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1D190A29F500DD9DFC /* OpenGL.framework */; };
 		92FDEA1F190A2A5600DD9DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA19190A29E700DD9DFC /* Foundation.framework */; };
 		92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA17190A296100DD9DFC /* SDLMain.m */; };
+		C0E2271E190B4CA000D7B806 /* keyboard_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		92FDEA19190A29E700DD9DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92FDEA1D190A29F500DD9DFC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard_input.h; sourceTree = "<group>"; };
+		C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard_input.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		92FDE9FF190A28D100DD9DFC = {
 			isa = PBXGroup;
 			children = (
+				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
 				14798D33190B3A070081C96A /* Player.cpp */,
 				14798D34190B3A070081C96A /* Player.h */,
 				14798D30190B390F0081C96A /* Box.cpp */,
@@ -106,6 +110,7 @@
 				92A3D0FA190AF34A0097134E /* background.png */,
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
+				C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */,
 			);
 			name = Game;
 			path = "SDL_OpenGL Template";
@@ -168,6 +173,7 @@
 				92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */,
 				92123941190B3EC900F31DBF /* Render.cpp in Sources */,
 				92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */,
+				C0E2271E190B4CA000D7B806 /* keyboard_input.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
