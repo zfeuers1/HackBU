@@ -11,6 +11,40 @@
 #define offset_x 100
 #define offset_y 75
 
+
+void RenderPowerBar(PowerBar &powerbar)
+{
+    unsigned char r,g,b,a;
+    
+    printf("%f\n", powerbar.health_remaining / 50);
+    
+    if (powerbar.color == "color1")
+    {
+        r = 0 + (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
+        g = 255 - (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
+        b = 0;
+        a = 125;
+        
+    }
+    else if (powerbar.color == "color2")
+    {
+        r = 0 + (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
+        g = 255 - (unsigned char)((powerbar.total_health - powerbar.health_remaining)/2);
+        b = 0;
+        a = 125;
+    }
+
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r,g,b,a);
+    glVertex2f(powerbar.x + offset_x, powerbar.y + offset_y);
+    glVertex2f(powerbar.x + powerbar.width + offset_x, powerbar.y + offset_y);
+    glVertex2f(powerbar.x + powerbar.width+ offset_x, powerbar.y + powerbar.height + offset_y);
+    glVertex2f(powerbar.x + offset_x, powerbar.y + powerbar.height + offset_y);
+    glEnd();
+}
+
+
 void RenderBox(Box &box)
 {
     unsigned char r,g,b,a;

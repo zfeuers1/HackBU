@@ -24,6 +24,7 @@ Box::Box(int xCord, int yCord){
     height = HEIGHT;
     claimed = false;
 
+
 }
 Box::Box(){}
 
