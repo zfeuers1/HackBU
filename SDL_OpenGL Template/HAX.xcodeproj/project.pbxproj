@@ -42,8 +42,8 @@
 		14DEA6CC190B2DB100642EFA /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 		9212393F190B3EC900F31DBF /* Render.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Render.cpp; sourceTree = "<group>"; };
 		92123940190B3EC900F31DBF /* Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Render.h; sourceTree = "<group>"; };
+		92123942190B506D00F31DBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
-		92A3D0FA190AF34A0097134E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		92FDEA08190A28D100DD9DFC /* HAX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HAX; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FDEA0B190A28D100DD9DFC /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = main.cpp; sourceTree = "<group>"; };
 		92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SDL_OpenGL_Template.1; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				92FDEA0B190A28D100DD9DFC /* main.cpp */,
 				9212393F190B3EC900F31DBF /* Render.cpp */,
 				92123940190B3EC900F31DBF /* Render.h */,
-				92A3D0FA190AF34A0097134E /* background.png */,
+				92123942190B506D00F31DBF /* background.png */,
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
 			);
