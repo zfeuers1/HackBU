@@ -15,6 +15,8 @@
 		92123945190B627B00F31DBF /* Fire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123943190B627B00F31DBF /* Fire.cpp */; };
 		92123948190BB35600F31DBF /* FrameRate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123946190BB35600F31DBF /* FrameRate.cpp */; };
 		9212394B190BC60B00F31DBF /* PowerBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123949190BC60B00F31DBF /* PowerBar.cpp */; };
+		92A193A9190C4BFF00F28C22 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A193A8190C4BFF00F28C22 /* AVFoundation.framework */; };
+		92A193AC190C608C00F28C22 /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A193AB190C608C00F28C22 /* SDL_mixer.framework */; };
 		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
 		92FDEA0E190A28D100DD9DFC /* SDL_OpenGL_Template.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */; };
 		92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */; };
@@ -55,6 +57,16 @@
 		92123947190BB35600F31DBF /* FrameRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameRate.h; sourceTree = "<group>"; };
 		92123949190BC60B00F31DBF /* PowerBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerBar.cpp; sourceTree = "<group>"; };
 		9212394A190BC60B00F31DBF /* PowerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerBar.h; sourceTree = "<group>"; };
+		9212399B190C460000F31DBF /* diefor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = diefor.wav; sourceTree = "<group>"; };
+		92A193A8190C4BFF00F28C22 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		92A193AA190C501900F28C22 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-07.mp3"; sourceTree = "<group>"; };
+		92A193AB190C608C00F28C22 /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = ../../../../../Library/Frameworks/SDL_mixer.framework; sourceTree = "<group>"; };
+		92A193AD190C692900F28C22 /* scifi018.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scifi018.mp3; sourceTree = "<group>"; };
+		92A193AE190C692E00F28C22 /* scifi003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scifi003.mp3; sourceTree = "<group>"; };
+		92A193AF190C6D9700F28C22 /* galagatheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = galagatheme.mp3; sourceTree = "<group>"; };
+		92A193B0190C6F9300F28C22 /* galaga.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = galaga.mp3; sourceTree = "<group>"; };
+		92A193B2190C6FF200F28C22 /* galaga2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = galaga2.mp3; sourceTree = "<group>"; };
+		92A193B3190C703400F28C22 /* galaga0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = galaga0.mp3; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
 		92FDEA08190A28D100DD9DFC /* HAX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HAX; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FDEA0B190A28D100DD9DFC /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = main.cpp; sourceTree = "<group>"; };
@@ -75,9 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A193A9190C4BFF00F28C22 /* AVFoundation.framework in Frameworks */,
 				14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */,
 				92FDEA1F190A2A5600DD9DFC /* Foundation.framework in Frameworks */,
 				14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */,
+				92A193AC190C608C00F28C22 /* SDL_mixer.framework in Frameworks */,
 				92FDEA1E190A29F500DD9DFC /* OpenGL.framework in Frameworks */,
 				92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */,
 			);
@@ -89,6 +103,8 @@
 		92FDE9FF190A28D100DD9DFC = {
 			isa = PBXGroup;
 			children = (
+				92A193AB190C608C00F28C22 /* SDL_mixer.framework */,
+				92A193A8190C4BFF00F28C22 /* AVFoundation.framework */,
 				92123949190BC60B00F31DBF /* PowerBar.cpp */,
 				9212394A190BC60B00F31DBF /* PowerBar.h */,
 				14798D33190B3A070081C96A /* Player.cpp */,
@@ -118,7 +134,11 @@
 		92FDEA0A190A28D100DD9DFC /* SDL_OpenGL Template */ = {
 			isa = PBXGroup;
 			children = (
+				92A193AF190C6D9700F28C22 /* galagatheme.mp3 */,
 				92FDEA0B190A28D100DD9DFC /* main.cpp */,
+				92A193B3190C703400F28C22 /* galaga0.mp3 */,
+				92A193B2190C6FF200F28C22 /* galaga2.mp3 */,
+				92A193B0190C6F9300F28C22 /* galaga.mp3 */,
 				92123946190BB35600F31DBF /* FrameRate.cpp */,
 				92123947190BB35600F31DBF /* FrameRate.h */,
 				92123943190B627B00F31DBF /* Fire.cpp */,
@@ -133,6 +153,10 @@
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
 				C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */,
 				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
+				92A193AA190C501900F28C22 /* beep-07.mp3 */,
+				9212399B190C460000F31DBF /* diefor.wav */,
+				92A193AD190C692900F28C22 /* scifi018.mp3 */,
+				92A193AE190C692E00F28C22 /* scifi003.mp3 */,
 			);
 			path = "SDL_OpenGL Template";
 			sourceTree = "<group>";

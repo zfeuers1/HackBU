@@ -13,7 +13,10 @@
 
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Cocoa/Cocoa.h>
 
+#import "SDL_mixer/SDL_mixer.h"
 
 #include "Box.h"
 #include "Player.h"
@@ -40,8 +43,54 @@ GLuint Initialize_Background_Image();
 
 
 
+//The music that will be played
+Mix_Music *music = NULL;
+
+Mix_Chunk *scratch = NULL;
+
+
+
 void Initialize_Gameboard();
 
+void clean()
+{
+     Mix_FreeChunk( scratch );
+    Mix_FreeMusic( music );
+     Mix_CloseAudio();
+
+}
+
+bool load_sound()
+{
+    music = Mix_LoadMUS("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/SDL_OpenGL Template/beep-07.mp3");
+    if (music == NULL)
+    {
+        return false;
+    }
+    else return true;
+    
+     scratch = Mix_LoadWAV( "/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/SDL_OpenGL Template/galaga0.mp3");
+
+    if(  scratch == NULL  )
+    {
+        return false;
+    }
+    
+    //If everything loaded fine
+    return true;
+    
+}
+
+bool initsound()
+{
+    //Initialize SDL_mixer
+    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
+    {
+        return false;
+    }
+
+    else return true;
+}
 
 int main(int argc, char * argv[])//** argv
 {
@@ -57,7 +106,11 @@ int main(int argc, char * argv[])//** argv
  //game is 600 by 500 starting at (100,75)
 
     int counter = 0;
+    int counter2 = 0;
+    int counter3 = 0;
 
+    int sound_counter = 0;
+    
     PowerBar power_bar1(PLAYER1);
     PowerBar power_bar2(PLAYER2);
     
@@ -90,6 +143,36 @@ int main(int argc, char * argv[])//** argv
 	Setup_Window_And_Rendering(SCREENWIDTH, SCREENHEIGHT);
     GLuint texture;
     texture =Initialize_Background_Image();
+    
+    
+    
+    if (!initsound())
+    {
+        printf("audio init failed\n");
+        
+    }
+    
+    if (!load_sound())
+    {
+        printf("audio load failed\n");
+
+    }
+    
+    
+    
+   /* if( Mix_PlayingMusic() == 0 )
+    {
+        //Play the music
+        printf("play music\n");
+        if( Mix_PlayMusic( music, -1 ) == -1 )
+        {
+            return 1;
+        }
+    }*/
+    
+    
+
+    
     
 
     UInt32 start_time;
@@ -139,6 +222,7 @@ int main(int argc, char * argv[])//** argv
         
         
         
+        
         //Render to the screen
 		glClear(GL_COLOR_BUFFER_BIT);
 		glPushMatrix();//start phase
@@ -160,6 +244,7 @@ int main(int argc, char * argv[])//** argv
     }
     
 
+    
     bool should_animate = false;
 
     
@@ -207,15 +292,18 @@ int main(int argc, char * argv[])//** argv
         {
             player1_made_path = Fire(player1, grid);
             
-            //should_animate = true;
+       
         
         }
         else
         {
+            
+        
             player1_made_path = false;
             should_animate = false;
-        }
         
+        }
+   
         
         //Player 2 Handling
         if(!AI)
@@ -271,13 +359,30 @@ int main(int argc, char * argv[])//** argv
                     player2_made_path = Fire(player2, grid);
                 }
                 
+                
                 if (player2_made_path)
                 {
+                    player1.color.R = 255;
+                    player1.color.G = 0;
+                    player1.color.B = 0;
+                    player1.color.A = 255;
                     power_bar1.DecreaseHealth();
                     player2_made_path = false;
+                    counter2 = 0;
                 }
+               
             }
-           
+            
+            
+            if (counter2 == 60)
+            {
+                player1.color.R = 255;
+                player1.color.G = 104;
+                player1.color.B = 11;
+                player1.color.A = 65;
+                counter2 = 0;
+            }
+            counter2++;
             counter++;
             
         }
@@ -289,12 +394,24 @@ int main(int argc, char * argv[])//** argv
         
         if (player1_made_path)
         {
+            player2.color.R = 255;
+            player2.color.G = 0;
+            player2.color.B = 0;
+            player2.color.A = 255;
             power_bar2.DecreaseHealth();
+            counter3 = 0;
         }
        
+        if (counter3 == 60)
+        {
+            player2.color.R = 110;
+            player2.color.G = 144;
+            player2.color.B = 255;
+            player2.color.A = 65;
+            counter3 = 0;
+        }
         
-        
-        
+        counter3 ++;
         
         last_input = input;
         
@@ -434,6 +551,32 @@ void Initialize_Gameboard()
  
  
  */
+
+
+
+void InitAudio()
+{
+    
+    
+    
+    
+    SDL_AudioSpec wav_spec;
+    Uint32 wav_length;
+    Uint8 *wav_buffer;
+    
+    /* Load the WAV */
+    if( SDL_LoadWAV("test.wav", &wav_spec, &wav_buffer, &wav_length) == NULL ){
+        fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
+        exit(-1);
+    }
+
+    /* Do stuff with the WAV */
+  
+    /* Free It */
+    SDL_FreeWAV(wav_buffer);
+}
+
+
 
 
 
