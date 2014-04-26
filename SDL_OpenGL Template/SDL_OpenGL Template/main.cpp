@@ -23,8 +23,7 @@
 #include "keyboard_input.h"
 
 
-#define PLAYER1 0
-#define PLAYER2 1
+
 
 
 using namespace std;
@@ -39,6 +38,9 @@ int main(int argc, char * argv[])//** argv
    
     int x = 0;
     int y = 0;
+    
+    bool PLAYER1 = 0;
+    bool PLAYER2 = 1;
 
     //game is 600 by 500 starting at (100,75)
 
@@ -46,6 +48,8 @@ int main(int argc, char * argv[])//** argv
     Box firstBox(100,100);
     Player player1(PLAYER1);
     Player player2(PLAYER2);
+    player1.player = 0;
+    player2.player = 1;
 
     Box grid[4][4];
     
@@ -133,6 +137,12 @@ int main(int argc, char * argv[])//** argv
         if(input.p2_up && !last_input.p2_up)
         {
             player2.moveUp();
+            
+        }
+        
+        if(input.p2_fire && !last_input.p2_fire)
+        {
+            Fire(player2, grid);
             
         }
         

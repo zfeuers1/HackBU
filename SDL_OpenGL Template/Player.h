@@ -24,7 +24,7 @@ public:
     int height;
     int width;
     int position;
-    int array_position;
+    int array_position = 0;
     
     void moveDown();
     void moveUp();
