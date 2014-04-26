@@ -9,7 +9,7 @@
 #include "PowerBar.h"
 
 #define WIDTH 75
-#define HEIGHT 500
+#define HEIGHT 475
 
 
 PowerBar::PowerBar(unsigned char PlayerNumber)
@@ -45,7 +45,7 @@ void PowerBar::setFrame()
         color = "color2";
     }
     
-    y = 0 + (total_health - health_remaining);
+    y = 25 + (total_health - health_remaining);
 
 }
 

@@ -16,7 +16,6 @@ void RenderPowerBar(PowerBar &powerbar)
 {
     unsigned char r,g,b,a;
     
-    printf("%f\n", powerbar.health_remaining / 50);
     
     if (powerbar.color == "color1")
     {
@@ -68,6 +67,13 @@ void RenderBox(Box &box)
         g = 240;
         b = 10;
         a = 125;
+    }
+    else if(box.color == "color3")
+    {
+        r = 255;
+        g = 255;
+        b = 255;
+        a = 255;
     }
     
     glBegin(GL_QUADS);
