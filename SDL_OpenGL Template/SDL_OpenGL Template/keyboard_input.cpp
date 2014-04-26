@@ -8,6 +8,7 @@
 
 #include "keyboard_input.h"
 
+using namespace std;
 
 void get_keyboard_input(player_input *input)
 {
@@ -19,12 +20,15 @@ void get_keyboard_input(player_input *input)
     //cout << "SDL is Running\n";
     
     
+    bool lastDown = false;
+    bool down = false;
     
     SDL_Event event;
     
     
     while ( SDL_PollEvent(&event) )
     {
+        
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_a))
             input->p1_left = true;
         else
@@ -41,9 +45,16 @@ void get_keyboard_input(player_input *input)
             input->p1_up = false;
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_s))
+            down = true;
+        if((event.type == SDL_KEYUP) && (event.key.keysym.sym == SDLK_s))
+            down = false;
+        
+        if((down != lastDown) && (down == true))
             input->p1_down = true;
-        else
+        else{
             input->p1_down = false;
+        }
+        
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_LSHIFT))
             input->p1_fire = true;
@@ -79,6 +90,8 @@ void get_keyboard_input(player_input *input)
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE))
             input->quit = true;
+        
+        lastDown = down;
     }
     
     

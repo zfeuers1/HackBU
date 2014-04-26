@@ -14,6 +14,8 @@ void Player::moveDown(){
     if (position != 4) {
         y = y + jump;
         position++;
+    }else{
+        cout << "too much";
     }
 }
 
