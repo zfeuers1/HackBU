@@ -41,7 +41,11 @@ void get_keyboard_input(player_input *input)
             input->p1_up = false;
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_s))
+        {
             input->p1_down = true;
+            break;
+        }
+        
         else
             input->p1_down = false;
         
@@ -77,7 +81,7 @@ void get_keyboard_input(player_input *input)
         else
             input->p2_fire = false;
         
-        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE))
+        if (((event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE)) || event.type == SDL_QUIT)
             input->quit = true;
     }
     
