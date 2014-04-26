@@ -127,7 +127,8 @@ int main(int argc, char * argv[])//** argv
     player_input input;
     player_input last_input;
     
-    
+    bool player1_made_path = false;
+    bool player2_made_path = false;
     
 	while (runProgram) //Begin main program loop
 	{
@@ -169,9 +170,14 @@ int main(int argc, char * argv[])//** argv
         }
         if(input.p1_fire && !last_input.p1_fire)
         {
-            Fire(player1, grid);
+            player1_made_path = Fire(player1, grid);
         
         }
+        else
+        {
+            player1_made_path = false;
+        }
+        
         
         //Player 2 Handling
         
@@ -187,19 +193,23 @@ int main(int argc, char * argv[])//** argv
         
         if(input.p2_fire && !last_input.p2_fire)
         {
-            Fire(player2, grid);
+            player2_made_path = Fire(player2, grid);
             
         }
-        
-        
-        
-        if (input.v_pressed && !last_input.v_pressed)
+        else
         {
-            power_bar1.DecreaseHealth();
+            player2_made_path = false;
         }
-        if (input.b_pressed && !last_input.b_pressed)
+        
+        
+        
+        if (player1_made_path)
         {
             power_bar2.DecreaseHealth();
+        }
+        if (player2_made_path)
+        {
+            power_bar1.DecreaseHealth();
         }
         
         
@@ -373,7 +383,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);

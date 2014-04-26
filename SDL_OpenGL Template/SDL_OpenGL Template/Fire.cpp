@@ -19,10 +19,9 @@ using namespace std;
 void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne);
 void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int *count);
 void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count);
-void DropColumn(int column, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count);
 
 
-void Fire(Player &player, Box GameBoard[][4])
+bool Fire(Player &player, Box GameBoard[][4])
 {
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
@@ -71,39 +70,32 @@ void Fire(Player &player, Box GameBoard[][4])
         
         cout <<"TARGET COUNT " << target_count << endl;
         
-        
+        bool player1_made_path = false;
         for (int i = 0; i < target_count; i ++ )
         {
             //GameBoard[target_coordinates_to_be_destroyed[i].x][target_coordinates_to_be_destroyed[i].y].claimed = true;
             printf("square %d to be destroyed coord  %d : %d\n\n\n",i, target_coordinates_to_be_destroyed[i].x, target_coordinates_to_be_destroyed[i].y);
+            
+            if (target_coordinates_to_be_destroyed[i].x == 3)
+            {
+                player1_made_path = true;
+            }
+            
+            
         }
         
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
-        //DropColumn(0, GameBoard, target_coordinates_to_be_destroyed, &target_count);
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
         
         
-        //once target is aquired, calculate longest path,
-        
-        //then destroy path
-        
-        //Fall
-        
-        //then Refill boxes
-        //        SortBoxes(target_coordinates_to_be_destroyed, &target_count);
-        //
-        //        cout << "After Sorted" << endl;
-        //        for(int i=0;i<target_count;i++){
-        //
-        //            cout << target_coordinates_to_be_destroyed[i].x << ", " << target_coordinates_to_be_destroyed[i].y << endl;
-        //        }
-        //
-        //        DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+       
+        return player1_made_path;
+
         
         
     }
     
-    if (player.player)
+    else
     {
         // If player 2
         cout <<"Player 2 " << endl;
@@ -128,17 +120,24 @@ void Fire(Player &player, Box GameBoard[][4])
         
         cout <<"TARGET COUNT " << target_count << endl;
         
-        
+        bool player2_made_path = false;
         for (int i = 0; i < target_count; i ++ )
         {
             //GameBoard[target_coordinates_to_be_destroyed[i].x][target_coordinates_to_be_destroyed[i].y].claimed = true;
             printf("square %d to be destroyed coord  %d : %d\n\n\n",i, target_coordinates_to_be_destroyed[i].x, target_coordinates_to_be_destroyed[i].y);
+            
+            if (target_coordinates_to_be_destroyed[i].x == 0)
+            {
+                player2_made_path = true;
+            }
         }
         
         
         
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+        
+        return player2_made_path;
         
     }
     
@@ -293,69 +292,6 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
 
 
 
-
-
-void DropColumn(int  column, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count)
-{
-    
-    unsigned char lowest_box_num;
-    unsigned char highest_box_num;
-    
-    //need lowest box to drop
-    //need gameboard and array of boxes to drop
-    
-    //need highest box to drop
-    
-    lowest_box_num = targets_to_be_destroyed[0].y;
-    highest_box_num = targets_to_be_destroyed[0].y;
-    for (int index = 1; index < *count; index++)
-    {
-        //get the column from targets to be destroyed
-        if(targets_to_be_destroyed[index].x == column)
-        {
-            if (targets_to_be_destroyed[index].y > lowest_box_num)
-            {
-                lowest_box_num = targets_to_be_destroyed[index].y;
-            }
-            
-            if (targets_to_be_destroyed[index].y < lowest_box_num) {
-                highest_box_num = targets_to_be_destroyed[index].y;
-            }
-            
-            
-        }
-    }
-    
-    
-    printf("lowest box num = %d\n", lowest_box_num);
-    
-    printf("highest box num = %d\n", highest_box_num);
-    
-    //unsigned char num_boxes_to_drop =
-    
-    //after knowing the highest and lowest box number, the distance for everythign below the highest to move down is the distance + 1
-    
-    unsigned char distance_to_move_down = (lowest_box_num - highest_box_num) + 1;
-    printf("distance to move down %d \n", distance_to_move_down);
-    
-    for (int i = lowest_box_num; i > 0 ; i--)
-    {
-        GameBoard[column][i].color = GameBoard[column][i-distance_to_move_down].color;
-        GameBoard[column][i].claimed = false;
-    }
-    
-    
-    //    if (highest_box_num != 0)
-    //    {
-    //        GameBoard[column][lowest_box_num] = GameBoard[column][highest_box_num+1];
-    //    }
-    
-    
-    //the difference between these boxes is the distance the box just above the highest box moves down
-    
-    //all boxes above highest box are re generated
-    
-}
 
 
 
