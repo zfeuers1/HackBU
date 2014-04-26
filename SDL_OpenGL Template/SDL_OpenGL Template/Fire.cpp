@@ -16,20 +16,30 @@ using namespace std;
 
 
 
-void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne);
-void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int *count);
+void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne);
+void DropBoxes(Box GameBoard[][8],array_coordinate *targets_to_be_destroyed, int *count);
 void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count);
 
 
 
-//int* arr[8]; // An array of int pointers.
-
-
-bool Fire(Player &player, Box GameBoard[][4])
+void shrinkBox(Box &box)
 {
     
-    for(int i=0;i<4;i++){
-        for(int j=0;j<4;j++){
+    int amount = 10;
+    box.width -= amount;
+    box.height -= amount;
+    box.x += amount/2.0;
+    box.y += amount/2.0;
+    
+    
+    //SDL_Delay(100);
+}
+
+bool Fire(Player &player, Box GameBoard[][8])
+{
+    for(int i=0;i<8;i++){
+        for(int j=0;j<8;j++){
+
             GameBoard[i][i].claimed=false;
             GameBoard[i][j].width = GameBoard[i][j].original_width;
             GameBoard[i][j].height = GameBoard[i][j].original_height;
@@ -42,7 +52,7 @@ bool Fire(Player &player, Box GameBoard[][4])
     
     //Box *targets_to_be_destroyed[16];
     
-    array_coordinate target_coordinates_to_be_destroyed[16];
+    array_coordinate target_coordinates_to_be_destroyed[64];
     
     
     
@@ -61,7 +71,7 @@ bool Fire(Player &player, Box GameBoard[][4])
         //Box target = GameBoard[0][player.array_position];
         GameBoard[0][player.array_position].claimed = true;
         
-        
+        shrinkBox(GameBoard[0][player.array_position]);
         //targets_to_be_destroyed[target_count] = &GameBoard[0][player.array_position];
         
         target_coordinates_to_be_destroyed[target_count].x = GameBoard[0][player.array_position].array_position_x;
@@ -89,7 +99,7 @@ bool Fire(Player &player, Box GameBoard[][4])
             //GameBoard[target_coordinates_to_be_destroyed[i].x][target_coordinates_to_be_destroyed[i].y].claimed = true;
             printf("square %d to be destroyed coord  %d : %d\n\n\n",i, target_coordinates_to_be_destroyed[i].x, target_coordinates_to_be_destroyed[i].y);
             
-            if (target_coordinates_to_be_destroyed[i].x == 3)
+            if (target_coordinates_to_be_destroyed[i].x == 7)
             {
                 player1_made_path = true;
             }
@@ -123,13 +133,11 @@ bool Fire(Player &player, Box GameBoard[][4])
         int target_count = 0;
         
         //Box target = GameBoard[3][player.array_position];
-        GameBoard[3][player.array_position].claimed = true;
+        GameBoard[7][player.array_position].claimed = true;
         
-       
-        
-        
-        target_coordinates_to_be_destroyed[target_count].x = GameBoard[3][player.array_position].array_position_x;
-        target_coordinates_to_be_destroyed[target_count].y = GameBoard[3][player.array_position].array_position_y;
+
+        target_coordinates_to_be_destroyed[target_count].x = GameBoard[7][player.array_position].array_position_x;
+        target_coordinates_to_be_destroyed[target_count].y = GameBoard[7][player.array_position].array_position_y;
         target_coordinates_to_be_destroyed[target_count].claimed = true;
         
         printf("start grid  %d : %d\n", target_coordinates_to_be_destroyed[target_count].x, target_coordinates_to_be_destroyed[target_count].y);
@@ -140,7 +148,7 @@ bool Fire(Player &player, Box GameBoard[][4])
         
         
         
-        SearchNeighborsOfBox(GameBoard[3][player.array_position], GameBoard, target_coordinates_to_be_destroyed, &target_count, player.player);
+        SearchNeighborsOfBox(GameBoard[7][player.array_position], GameBoard, target_coordinates_to_be_destroyed, &target_count, player.player);
         
         cout <<"TARGET COUNT " << target_count << endl;
         
@@ -176,25 +184,13 @@ bool Fire(Player &player, Box GameBoard[][4])
 
 
 
-void shrinkBox(Box &box)
-{
-    int amount = 10;
-    box.width -= amount;
-    box.height -= amount;
-    box.x += amount/2.0;
-    box.y += amount/2.0;
 
-    //SDL_Delay(100);
-}
 
 
 
 //recursive search function
 
-
-
-
-void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne)
+void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne)
 {
     //calling claimed int the wrong place
     
@@ -237,7 +233,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
     
     //search below box
     
-    if (box.array_position_y < 3)
+    if (box.array_position_y < 7)
     {
         
         neighbor = GameBoard[box.array_position_x][box.array_position_y + 1];
@@ -279,7 +275,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
     
     if (!isPlayerOne)
     {
-        if (box.array_position_x < 3)
+        if (box.array_position_x < 7)
         {
             neighbor = GameBoard[box.array_position_x + 1][box.array_position_y];
             if (neighbor.color == box.color && (!neighbor.claimed))
@@ -371,8 +367,8 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
     
     int temp;
     int cnt =0;
-    array_coordinate tempArray[16];
-    for (int k = 0; k<4; k++) {
+    array_coordinate tempArray[64];
+    for (int k = 0; k<8; k++) {
         for (int j=0; j<*count; j++) {
             if (targets_to_be_destroyed[j].x == k) {
                 tempArray[cnt].x = targets_to_be_destroyed[j].x;
@@ -410,7 +406,7 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
     
     for(int i=0;i<*count;i++){
         
-        if(targets_to_be_destroyed[i].y > 3 || targets_to_be_destroyed[i].y < 0){
+        if(targets_to_be_destroyed[i].y > 7 || targets_to_be_destroyed[i].y < 0){
             targets_to_be_destroyed[i].y = 0;
         }
     }
@@ -430,14 +426,14 @@ void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
     
 }
 
-void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int *count){
+void DropBoxes(Box GameBoard[][8],array_coordinate *targets_to_be_destroyed, int *count){
     cout << endl << endl;
     for(int i=0;i<*count;i++){
         
         cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
     }
     int i = 0;
-    for(int colm = 0; colm < 4; colm++){
+    for(int colm = 0; colm < 8; colm++){
         while(targets_to_be_destroyed[i].x == colm){
             
             
@@ -494,7 +490,94 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
                 cout << "Destroy 2" << endl;
                 cout << "Destroy Top" << endl;
                 
+            }else if(targets_to_be_destroyed[i].y == 4){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
+                                                                                             GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -3].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 4]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 4].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-4].claimed=false;
             }
+            else if(targets_to_be_destroyed[i].y == 5){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
+                                                                                             GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -3].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 4]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -4].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 5]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 5].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-4].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-5].claimed=false;
+            }
+            else if(targets_to_be_destroyed[i].y == 6){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
+                                                                                             GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -3].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 4]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -4].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 5]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -5].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 6]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 6].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-4].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-5].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-6].claimed=false;
+            }
+            else if(targets_to_be_destroyed[i].y == 7){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
+                                                                                             GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -3].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 4]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -4].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 5]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -5].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 6]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -6].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 7]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 7].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-4].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-5].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-6].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-7].claimed=false;
+
+            }
+            
             i++;
         }
         

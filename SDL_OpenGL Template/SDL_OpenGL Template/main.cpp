@@ -30,8 +30,8 @@
 #define SCREENWIDTH 1000
 #define SCREENHEIGHT 650
 
-#define ROWS 4
-#define COLUMNS 4
+#define ROWS 8
+#define COLUMNS 8
 
 
 using namespace std;
@@ -51,7 +51,7 @@ int main(int argc, char * argv[])//** argv
 
     int x_pos = 0;
     int y_pos = 0;
-    int distance_between = 80;
+    int distance_between = 40;
 
 
     bool PLAYER1 = 0;
@@ -73,10 +73,10 @@ int main(int argc, char * argv[])//** argv
    
     
 
-    Box grid[4][4];
+    Box grid[8][8];
     
-    for (int i =0; i<4; i++) {
-        for (int j=0; j<4; j++) {
+    for (int i =0; i<8; i++) {
+        for (int j=0; j<8; j++) {
             grid[i][j].set(145 + x_pos, 100 + y_pos);
             grid[i][j].Random();
             grid[i][j].setArrayPositions(i, j);
@@ -108,20 +108,9 @@ int main(int argc, char * argv[])//** argv
     cout << "OpenGL is Running\n";
 
 
-
-   //make a mutable array of squares that match the dimensions and positions of the boxes
     
     
-    
-    
-    
-    
-    
-    
-
     bool runProgram = true;
-
-
     
     
     player_input input;
@@ -129,6 +118,8 @@ int main(int argc, char * argv[])//** argv
     
     bool player1_made_path = false;
     bool player2_made_path = false;
+    
+    bool should_animate = false;
     
 	while (runProgram) //Begin main program loop
 	{
@@ -171,11 +162,14 @@ int main(int argc, char * argv[])//** argv
         if(input.p1_fire && !last_input.p1_fire)
         {
             player1_made_path = Fire(player1, grid);
+            
+            should_animate = true;
         
         }
         else
         {
             player1_made_path = false;
+            should_animate = false;
         }
         
         
@@ -194,11 +188,12 @@ int main(int argc, char * argv[])//** argv
         if(input.p2_fire && !last_input.p2_fire)
         {
             player2_made_path = Fire(player2, grid);
-            
+            should_animate = true;
         }
         else
         {
             player2_made_path = false;
+            should_animate = false;
         }
         
         
@@ -245,9 +240,12 @@ int main(int argc, char * argv[])//** argv
         
         //things to render goes here
         
-        for (int i = 0; i <4; i++) {
-            for(int j=0; j<4;j++){
-                 RenderBox(grid[i][j]);
+        for (int i = 0; i <8; i++) {
+            for(int j=0; j<8;j++){
+                
+                RenderBox(grid[i][j]);
+
+                
             }
         }
        
@@ -419,9 +417,9 @@ void Render_Background_Image(GLuint textureID)
     int Height = 650;
     
     glEnable(GL_TEXTURE_2D);
+    
     glBegin(GL_QUADS);
-    //glColor4b(255, 255, 255, 0);
-    glColor4f(1,1,1,1);
+    glColor4f(1, 1, 1, 1);
     glTexCoord2f(0, 0); glVertex3f(X, Y, 0);
     glTexCoord2f(1, 0); glVertex3f(X + Width, Y, 0);
     glTexCoord2f(1, 1); glVertex3f(X + Width, Y + Height, 0);

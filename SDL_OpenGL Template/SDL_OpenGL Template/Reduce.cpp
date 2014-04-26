@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void Reduce(Box GameBoard[][4], int rows, int columns, int *count)
+void Reduce(Box GameBoard[][8], int rows, int columns, int *count)
 {
     string color;
     

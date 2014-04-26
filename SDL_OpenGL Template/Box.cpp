@@ -10,8 +10,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define WIDTH 75
-#define HEIGHT 75
+#define WIDTH 30
+#define HEIGHT 30
 
 using namespace std;
 
@@ -63,16 +63,18 @@ void Box::Random(){
 
     int random;
     
-    random = arc4random() % 2;
+    random = arc4random() % 3;
     
     if (random == 1)
     {
         color = "color1";
     }
     
-    else
+    else if(random == 0)
     {
         color = "color2";
+    }else{
+        color = "color3";
     }
     
     

@@ -85,10 +85,10 @@ void RenderBox(Box &box)
         a = 65;
     }
     else if(box.color =="color3"){
-        r = 255;
-        g = 255;
-        b = 255;
-        a = 125;
+        r = 195;
+        g = 10;
+        b = 185;
+        a = 35;
     }
 
     
