@@ -42,7 +42,8 @@ void Fire(Player &player, Box GameBoard[][4])
     
     if (!player.player)
     {
-        //if player 0
+        //if player 1
+        cout <<"Player 1 " << endl;
         
         int target_count = 0;
 
@@ -96,6 +97,40 @@ void Fire(Player &player, Box GameBoard[][4])
         
     }
     
+    if (player.player)
+    {
+        // If player 2
+        cout <<"Player 2 " << endl;
+        int target_count = 0;
+        
+        //Box target = GameBoard[3][player.array_position];
+        GameBoard[3][player.array_position].claimed = true;
+        
+        target_coordinates_to_be_destroyed[target_count].x = GameBoard[3][player.array_position].array_position_x;
+        target_coordinates_to_be_destroyed[target_count].y = GameBoard[3][player.array_position].array_position_y;
+        target_coordinates_to_be_destroyed[target_count].claimed = true;
+        
+        printf("start grid  %d : %d\n", target_coordinates_to_be_destroyed[target_count].x, target_coordinates_to_be_destroyed[target_count].y);
+        target_count++;
+        
+        
+        
+        
+        
+        
+        SearchNeighborsOfBox(GameBoard[3][player.array_position], GameBoard, target_coordinates_to_be_destroyed, &target_count, player.player);
+        
+        cout <<"TARGET COUNT " << target_count << endl;
+        
+        
+        for (int i = 0; i < target_count; i ++ )
+        {
+            //GameBoard[target_coordinates_to_be_destroyed[i].x][target_coordinates_to_be_destroyed[i].y].claimed = true;
+            printf("square %d to be destroyed coord  %d : %d\n\n\n",i, target_coordinates_to_be_destroyed[i].x, target_coordinates_to_be_destroyed[i].y);
+        }
+
+        
+    }
     
 }
 
