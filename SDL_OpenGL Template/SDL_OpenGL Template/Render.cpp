@@ -78,7 +78,7 @@ void RenderBox(Box &box)
     else if(box.color == "color3")
     {
         r = 255;
-        g = 255;
+        g = 0;
         b = 255;
         a = 255;
     }

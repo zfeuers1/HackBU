@@ -28,6 +28,14 @@ void Fire(Player &player, Box GameBoard[][4])
     //printf("player position : %d \n", player.array_position);
     
     //Box *targets_to_be_destroyed[16];
+    
+    for (int i = 3; i >= 0; i--)
+    {
+        for (int j = 3; j>=0; j--)
+        {
+            GameBoard[i][j].claimed = false;
+        }
+    }
 
     array_coordinate target_coordinates_to_be_destroyed[16];
     
@@ -75,7 +83,12 @@ void Fire(Player &player, Box GameBoard[][4])
         }
     
        
-            DropColumn(0, GameBoard, target_coordinates_to_be_destroyed, &target_count);
+//        for (int i = 0; i < 4; i++)
+//        {
+//            DropColumn(i, GameBoard, target_coordinates_to_be_destroyed, &target_count);
+//
+//        }
+        
 
         
         
@@ -170,8 +183,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
             targets_to_be_destroyed[*count].claimed = true;
            
             GameBoard[box.array_position_x ][box.array_position_y - 1].claimed = true;
-
-
+            GameBoard[box.array_position_x ][box.array_position_y - 1].color = "color3";
+            
             *count += 1;
 
             //TODO recursive neighbor finding
@@ -198,6 +211,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
             targets_to_be_destroyed[*count].claimed = true;
             
             GameBoard[box.array_position_x ][box.array_position_y + 1].claimed = true;
+            GameBoard[box.array_position_x ][box.array_position_y + 1].color = "color3";
+
            
 
             *count += 1;
@@ -234,7 +249,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
                 targets_to_be_destroyed[*count].claimed = true;
 
                 GameBoard[box.array_position_x + 1 ][box.array_position_y].claimed = true;
-                
+                GameBoard[box.array_position_x + 1 ][box.array_position_y].color = "color3";
+
 
                 *count += 1;
 
@@ -267,7 +283,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
                 targets_to_be_destroyed[*count].claimed = true;
                 GameBoard[box.array_position_x - 1 ][box.array_position_y].claimed = true;
 
-                
+                GameBoard[box.array_position_x - 1 ][box.array_position_y].color = "color3";
+
                 
                 *count += 1;
 
@@ -281,6 +298,10 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
     }
     
 
+    for (int i = 0; i < *count; i++)
+    {
+        printf("coordinates : %d %d\n", targets_to_be_destroyed[i].x, targets_to_be_destroyed[i].y);
+    }
     
 
 }
@@ -291,7 +312,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
 
 
 
-void DropColumn(int  column, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count)
+void DropColumn(int column, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count)
 {
     
     unsigned char lowest_box_num;
@@ -304,11 +325,12 @@ void DropColumn(int  column, Box GameBoard[][4], array_coordinate *targets_to_be
     
     lowest_box_num = targets_to_be_destroyed[0].y;
     highest_box_num = targets_to_be_destroyed[0].y;
-    for (int index = 1; index < *count; index++)
+    for (int index = 0; index < *count; index++)
     {
         //get the column from targets to be destroyed
         if(targets_to_be_destroyed[index].x == column)
         {
+            printf("All targets %d : %d\n", targets_to_be_destroyed[index].x, targets_to_be_destroyed[index].y );
             if (targets_to_be_destroyed[index].y > lowest_box_num)
             {
                 lowest_box_num = targets_to_be_destroyed[index].y;
@@ -336,8 +358,17 @@ void DropColumn(int  column, Box GameBoard[][4], array_coordinate *targets_to_be
     
     for (int i = lowest_box_num; i > 0 ; i--)
     {
-        GameBoard[column][i].color = GameBoard[column][i-distance_to_move_down].color;
-        GameBoard[column][i].claimed = false;
+      
+        if (highest_box_num != 0)
+        {
+            GameBoard[column][i].color = GameBoard[column][i-distance_to_move_down].color;
+            GameBoard[column][i].claimed = false;
+        }
+        
+        
+        
+        
+        
     }
     
 
