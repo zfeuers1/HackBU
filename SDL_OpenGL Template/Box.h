@@ -39,7 +39,7 @@ public:
     void set(int xCord, int yCord);
     void Random();
     void Drop(Box &aboveBox);
-
+    void DropTop();
     void setArrayPositions(int i, int j);
 
 

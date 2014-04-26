@@ -72,5 +72,9 @@ void Box::Drop(Box &aboveBox){
     
 }
 
+void Box::DropTop(){
+    this->Random();
+}
+
 
 
