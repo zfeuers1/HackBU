@@ -51,19 +51,6 @@ void Box::Random(){
     
     random = arc4random() % 2;
     
-    //cout << "Random = " << random  << endl;
-//    if (random == 1) {
-//        color.R = 10;
-//        color.G = 240;
-//        color.B = 200;
-//        color.A= 255;
-//    }else{
-//        color.R = 210;
-//        color.G = 240;
-//        color.B = 10;
-//        color.A= 255;
-//    }
-    
     if (random == 1)
     {
         color = "color1";
@@ -78,6 +65,16 @@ void Box::Random(){
     
 }
 
+
+void Box::Drop(Box &aboveBox){
+    
+    color = aboveBox.color;
+    
+}
+
+void Box::DropTop(){
+    this->Random();
+}
 
 
 

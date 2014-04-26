@@ -21,7 +21,7 @@
 #include "Fire.h"
 
 #include "keyboard_input.h"
-#include "../src/SOIL.h"
+
 
 #define PLAYER1 0
 #define PLAYER2 1
@@ -176,9 +176,8 @@ int main(int argc, char * argv[])//** argv
 
         RenderPlayer(player1);
 
-        RenderPlayer(player2);
 
-        
+        RenderPlayer(player2);
         ///////////////////////////////////////////
 		glPopMatrix();//end
 		SDL_GL_SwapBuffers();//re-draws
