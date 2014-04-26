@@ -53,7 +53,7 @@
 		92FDEA19190A29E700DD9DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92FDEA1D190A29F500DD9DFC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard_input.h; sourceTree = "<group>"; };
+		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keyboard_input.h; path = ../keyboard_input.h; sourceTree = "<group>"; };
 		C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = keyboard_input.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,6 @@
 		92FDE9FF190A28D100DD9DFC = {
 			isa = PBXGroup;
 			children = (
-				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
 				14798D33190B3A070081C96A /* Player.cpp */,
 				14798D34190B3A070081C96A /* Player.h */,
 				14798D30190B390F0081C96A /* Box.cpp */,
@@ -111,6 +110,7 @@
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
 				C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */,
+				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
 			);
 			path = "SDL_OpenGL Template";
 			sourceTree = "<group>";

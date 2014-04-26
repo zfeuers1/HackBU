@@ -70,18 +70,34 @@ int main(int argc, char * argv[])//** argv
      */
     player_input input;
     
+    player_input last_input;
     
 	while (runProgram) //Begin main program loop
 	{
-		get_keyboard_input(&input);
         
+		get_keyboard_input(&input);
         
         
         if (input.quit == true)
             runProgram = false;
-        if(input.p1_down){
+        if(input.p1_down && !last_input.p1_down){
             player1.moveDown();
         }
+        if(input.p1_up && !last_input.p1_up)
+        {
+            player1.moveUp();
+   
+        }
+        
+        
+        
+        last_input = input;
+        //END EVENT HANDLING
+        
+        
+        
+        
+        
         
         //Logic Goes Here
         
