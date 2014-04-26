@@ -28,8 +28,7 @@ public:
     color color;
     int width;
     int height;
-private:
-    
+    Box(int xCord, int yCord);
 };
 
 #endif /* defined(__SDL_OpenGL_Template__Box__) */

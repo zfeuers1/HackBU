@@ -7,4 +7,33 @@
 //
 
 #include "Box.h"
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+Box::Box(int xCord, int yCord){
+    
+    int random;
+    
+    srand (time_t(NULL));
+
+    x = xCord;
+    y = yCord;
+    width = 50;
+    height = 50;
+    
+    random = rand() % 2;
+    if (random) {
+        color.R = 10;
+        color.G = 240;
+        color.B = 200;
+        color.A= 255;
+    }else{
+        color.R = 210;
+        color.G = 240;
+        color.B = 10;
+        color.A= 255;
+    }
+}
 

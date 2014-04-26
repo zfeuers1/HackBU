@@ -26,7 +26,7 @@ public:
     int position;
     void moveDown();
     void moveUp();
-    Player();
+    Player(bool whichPlayer);
 };
 
 
