@@ -10,9 +10,13 @@
 #define __HAX__Fire__
 
 #include <iostream>
+#include <Foundation/Foundation.h>
+#include <AppKit/AppKit.h>
+#include <SDL/SDL.h>
 
 #include "Box.h"
 #include "Player.h"
+#include "Render.h"
 
 struct array_coordinate {
     int x;
@@ -21,6 +25,10 @@ struct array_coordinate {
 };
 
 bool Fire(Player &player, Box GameBoard[][4]);
+
+
+
+
 
 
 #endif /* defined(__HAX__Fire__) */

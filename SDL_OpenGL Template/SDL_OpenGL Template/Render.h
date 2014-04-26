@@ -24,11 +24,14 @@
 using namespace std;
 
 
+
+
 void RenderBox(Box &box);
 
 
 void RenderPowerBar(PowerBar &powerbar);
 
 void RenderPlayer(Player &player);
+
 
 #endif /* defined(__SDL_OpenGL_Template__Render__) */

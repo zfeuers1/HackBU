@@ -26,9 +26,13 @@ class Box{
 public:
     int x;
     int y;
+    int original_x;
+    int original_y;
     string color;
     int width;
     int height;
+    int original_width;
+    int original_height;
     int array_position_x;
     int array_position_y;
     bool claimed;

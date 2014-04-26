@@ -109,7 +109,7 @@ int main(int argc, char * argv[])//** argv
 
 
 
-    
+   //make a mutable array of squares that match the dimensions and positions of the boxes
     
     
     
@@ -240,7 +240,7 @@ int main(int argc, char * argv[])//** argv
         
         Render_Background_Image(texture);
 
-
+        
 
         
         //things to render goes here
@@ -257,6 +257,7 @@ int main(int argc, char * argv[])//** argv
         
         RenderPowerBar(power_bar1);
         RenderPowerBar(power_bar2);
+        
 
         
         ///////////////////////////////////////////
