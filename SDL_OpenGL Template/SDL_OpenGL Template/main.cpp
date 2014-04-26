@@ -110,7 +110,7 @@ int main(int argc, char * argv[])//** argv
     
     bool player1_made_path = false;
     bool player2_made_path = false;
-    
+    bool AI = false;
 
     while (menu) {
         
@@ -121,7 +121,11 @@ int main(int argc, char * argv[])//** argv
         if (input.start)
         {
             menu = false;
-            
+            AI = false;
+        }
+        if(input.startAI){
+            menu = false;
+            AI = true;
         }
         if (input.quit)
         {
@@ -187,7 +191,7 @@ int main(int argc, char * argv[])//** argv
         
         
         
-        //Player 1 Handling
+          //Player 1 Handling
         
         if(input.p1_down && !last_input.p1_down)
         {
@@ -438,7 +442,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/ZacK/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);

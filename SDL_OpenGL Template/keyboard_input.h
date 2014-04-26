@@ -31,7 +31,7 @@ struct player_input{
     bool p2_up;
     bool p2_down;
     bool p2_fire;
-    
+    bool startAI;
     bool b_pressed;
     bool v_pressed;
     
