@@ -56,6 +56,7 @@ int main(int argc, char * argv[])//** argv
 
  //game is 600 by 500 starting at (100,75)
 
+    int counter = 0;
 
     PowerBar power_bar1(PLAYER1);
     PowerBar power_bar2(PLAYER2);
@@ -248,30 +249,36 @@ int main(int argc, char * argv[])//** argv
       
         else
         {
-            if (arc4random() % 100  >  40)
+            if (counter == max_FPS/3.0)
             {
-                if (arc4random() % 100  >  50) {
-                    player2.moveDown();
-
+                counter = 0;
+                if (arc4random() % 100  >  50)
+                {
+                    if (arc4random() % 100  >  45) {
+                        player2.moveDown();
+                        
+                    }
+                    else
+                    {
+                        player2.moveUp();
+                    }
+                    
                 }
+                
+                
                 else
                 {
-                    player2.moveUp();
+                    player2_made_path = Fire(player2, grid);
                 }
-
+                
+                if (player2_made_path)
+                {
+                    power_bar1.DecreaseHealth();
+                    player2_made_path = false;
+                }
             }
-         
-            
-            else
-            {
-                player2_made_path = Fire(player2, grid);
-            }
-            
-            if (player2_made_path)
-            {
-                power_bar1.DecreaseHealth();
-                player2_made_path = false;
-            }
+           
+            counter++;
             
         }
         
@@ -478,7 +485,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/ZacK/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);
