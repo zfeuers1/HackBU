@@ -22,6 +22,8 @@
 
 #include "keyboard_input.h"
 
+#include "FrameRate.h"
+
 
 #define PLAYER1 0
 #define PLAYER2 1
@@ -47,18 +49,13 @@ void Initialize_Gameboard();
 int main(int argc, char * argv[])//** argv
 {
     
-    
-    
-    
-    
-   
     int x_pos = 0;
     int y_pos = 0;
-
+    int distance_between = 80;
     //game is 600 by 500 starting at (100,75)
 
 
-    Box firstBox(100,100);
+    //Box firstBox(600,100);
     Player player1(PLAYER1);
     Player player2(PLAYER2);
 
@@ -66,12 +63,12 @@ int main(int argc, char * argv[])//** argv
     
     for (int i =0; i<4; i++) {
         for (int j=0; j<4; j++) {
-            grid[i][j].set(100 + x_pos, 100 + y_pos);
+            grid[i][j].set(145 + x_pos, 100 + y_pos);
             grid[i][j].Random();
             grid[i][j].setArrayPositions(i, j);
-            y_pos = y_pos + 55;
+            y_pos = y_pos + distance_between;
         }
-        x_pos = x_pos + 55;
+        x_pos = x_pos + distance_between;
         y_pos = 0;
     }
     
@@ -84,30 +81,11 @@ int main(int argc, char * argv[])//** argv
     Initialize_Memory_Attributes();
 	Setup_Window_And_Rendering(SCREENWIDTH, SCREENHEIGHT);
     GLuint texture;
-    //texture = Initialize_Background_Image();
-    
-
-    GLuint TextureID = 0;
-    
-    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
-    
-    glGenTextures(1, &TextureID);
-    glBindTexture(GL_TEXTURE_2D, TextureID);
-    
-    int Mode = GL_RGBA;
-    
-    if(Surface->format->BytesPerPixel == 4) {
-        Mode = GL_RGBA;
-    }
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, Mode, SCREENWIDTH, SCREENHEIGHT, 0, Mode, GL_UNSIGNED_BYTE, Surface->pixels);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    texture = Initialize_Background_Image();
     
     
-    glBindTexture(GL_TEXTURE_2D, TextureID);
-    
+    UInt32 start_time;
+    const int max_FPS = 60;
     
     
 
@@ -116,6 +94,15 @@ int main(int argc, char * argv[])//** argv
 
 
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     bool runProgram = true;
 
@@ -126,11 +113,11 @@ int main(int argc, char * argv[])//** argv
     player_input last_input;
     
     
-   
-    
+    int x = 0;
     
 	while (runProgram) //Begin main program loop
 	{
+        start_time = SDL_GetTicks();
         
 		get_keyboard_input(&input);
         
@@ -182,16 +169,14 @@ int main(int argc, char * argv[])//** argv
         
         
         
-    
-        
-        
-        
+     
         
         //Logic Goes Here
+        x++;
         
         
         
-        
+      
         
         //Render to the screen
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -200,8 +185,8 @@ int main(int argc, char * argv[])//** argv
         /////////////////////////////////////////////
         
         
-        //Render_Background_Image(texture);
-       
+        Render_Background_Image(texture);
+
 
         
         //things to render goes here
@@ -220,9 +205,23 @@ int main(int argc, char * argv[])//** argv
         
         ///////////////////////////////////////////
 		glPopMatrix();//end
-		SDL_GL_SwapBuffers();//re-draws
+		SDL_GL_SwapBuffers();//re-drawsf
+        
+      
+       
+       
+        
+       
+        
+        
+        LimitFrameRate(max_FPS, start_time);
+        
+        
+        
+        
         
     }//end while
+    
     
     
     SDL_Quit();

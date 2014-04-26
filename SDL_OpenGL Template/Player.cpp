@@ -28,13 +28,13 @@ void Player::moveUp(){
 
 Player::Player(bool whichPlayer){
     if (whichPlayer == 0) {
-        x = 40;
+        x = 120;
         color.R = 245;
         color.G = 244;
         color.B = 11;
         color.A = 255;
     }else{
-        x = 500;
+        x = 450;
         color.R = 110;
         color.G = 144;
         color.B = 101;
