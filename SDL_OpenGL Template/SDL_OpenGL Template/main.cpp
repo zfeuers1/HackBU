@@ -175,11 +175,13 @@ int main(int argc, char * argv[])//** argv
         
         if (power_bar1.isEmpty())
         {
+            sleep(1);
             runProgram  = false;
         }
     
         if (power_bar2.isEmpty())
         {
+            sleep(1);
             runProgram =  false; 
         }
         
