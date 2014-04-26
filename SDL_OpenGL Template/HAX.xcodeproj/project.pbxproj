@@ -12,6 +12,7 @@
 		14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CB190B2DB100642EFA /* SDL_image.framework */; };
 		14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CC190B2DB100642EFA /* SDL.framework */; };
 		92123941190B3EC900F31DBF /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9212393F190B3EC900F31DBF /* Render.cpp */; };
+		92123945190B627B00F31DBF /* Fire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123943190B627B00F31DBF /* Fire.cpp */; };
 		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
 		92FDEA0E190A28D100DD9DFC /* SDL_OpenGL_Template.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */; };
 		92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */; };
@@ -43,8 +44,10 @@
 		14DEA6CC190B2DB100642EFA /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 		9212393F190B3EC900F31DBF /* Render.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Render.cpp; sourceTree = "<group>"; };
 		92123940190B3EC900F31DBF /* Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Render.h; sourceTree = "<group>"; };
+		92123942190B506D00F31DBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
+		92123943190B627B00F31DBF /* Fire.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Fire.cpp; sourceTree = "<group>"; };
+		92123944190B627B00F31DBF /* Fire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fire.h; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
-		92A3D0FA190AF34A0097134E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		92FDEA08190A28D100DD9DFC /* HAX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HAX; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FDEA0B190A28D100DD9DFC /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = main.cpp; sourceTree = "<group>"; };
 		92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SDL_OpenGL_Template.1; sourceTree = "<group>"; };
@@ -53,7 +56,7 @@
 		92FDEA19190A29E700DD9DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		92FDEA1D190A29F500DD9DFC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard_input.h; sourceTree = "<group>"; };
+		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keyboard_input.h; path = ../keyboard_input.h; sourceTree = "<group>"; };
 		C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = keyboard_input.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +79,6 @@
 		92FDE9FF190A28D100DD9DFC = {
 			isa = PBXGroup;
 			children = (
-				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
 				14798D33190B3A070081C96A /* Player.cpp */,
 				14798D34190B3A070081C96A /* Player.h */,
 				14798D30190B390F0081C96A /* Box.cpp */,
@@ -105,12 +107,15 @@
 			isa = PBXGroup;
 			children = (
 				92FDEA0B190A28D100DD9DFC /* main.cpp */,
+				92123943190B627B00F31DBF /* Fire.cpp */,
+				92123944190B627B00F31DBF /* Fire.h */,
 				9212393F190B3EC900F31DBF /* Render.cpp */,
 				92123940190B3EC900F31DBF /* Render.h */,
-				92A3D0FA190AF34A0097134E /* background.png */,
+				92123942190B506D00F31DBF /* background.png */,
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
 				C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */,
+				C0E2271B190B4C7500D7B806 /* keyboard_input.h */,
 			);
 			path = "SDL_OpenGL Template";
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92123945190B627B00F31DBF /* Fire.cpp in Sources */,
 				14798D35190B3A070081C96A /* Player.cpp in Sources */,
 				14798D32190B390F0081C96A /* Box.cpp in Sources */,
 				92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */,

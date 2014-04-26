@@ -8,6 +8,7 @@
 
 #include "keyboard_input.h"
 
+using namespace std;
 
 void get_keyboard_input(player_input *input)
 {
@@ -22,31 +23,21 @@ void get_keyboard_input(player_input *input)
     bool keystate = false;
     bool last_keystate = false;
     
+    bool lastDown = false;
+    bool down = false;
     
     SDL_Event event;
+
+    input->quit = false;
+        
     
     
     if ( SDL_PollEvent(&event) )
     {
         
-       //read state
-        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_s))
-            keystate = true;
-        else
-            keystate = false;
+
         
-        //check for change
-        if (keystate != last_keystate)
-        {
-            if (keystate == true)
-                input->p1_down = true;
-            else
-                input->p1_down = false;
-                
-        }
-        
-        
-        
+
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_a))
             input->p1_left = true;
         else
@@ -62,14 +53,15 @@ void get_keyboard_input(player_input *input)
         else
             input->p1_up = false;
         
-        /*
+        
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_s))
+        {
             input->p1_down = true;
+        }
+        
         else
-            input->p1_down = false;*/
-        
-        
-        
+            input->p1_down = false;
+
         
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_LSHIFT))
@@ -104,17 +96,16 @@ void get_keyboard_input(player_input *input)
         else
             input->p2_fire = false;
         
-        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE))
+        if (((event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE)) || event.type == SDL_QUIT)
+        {
+        
+    
             input->quit = true;
-        
-        
-        last_keystate = keystate;
+
+        }
+ 
+
     }
-    
-    
-    
-    
-    
     
     
 }

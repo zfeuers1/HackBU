@@ -12,29 +12,69 @@
 
 using namespace std;
 
+
 Box::Box(int xCord, int yCord){
-    
-    int random;
-    
-    srand (time(NULL));
 
     x = xCord;
     y = yCord;
     width = 50;
     height = 50;
-    
-    random = rand() % 2 + 1;
-    cout << "Random = " << random  << endl;
-    if (random == 1) {
-        color.R = 10;
-        color.G = 240;
-        color.B = 200;
-        color.A= 255;
-    }else{
-        color.R = 210;
-        color.G = 240;
-        color.B = 10;
-        color.A= 255;
-    }
+    claimed = false;
+
 }
+Box::Box(){}
+
+void Box::set(int xCord, int yCord){
+ 
+    
+    x = xCord;
+    y = yCord;
+    width = 50;
+    height = 50;
+    
+    
+    
+}
+
+void Box::setArrayPositions(int i, int j)
+{
+
+    array_position_x = i;
+    array_position_y = j;
+    
+    
+}
+
+void Box::Random(){
+
+    int random;
+    
+    random = arc4random() % 2;
+    
+    if (random == 1)
+    {
+        color = "color1";
+    }
+    
+    else
+    {
+        color = "color2";
+    }
+    
+    
+    
+}
+
+
+void Box::Drop(Box &aboveBox){
+    
+    color = aboveBox.color;
+    
+}
+
+void Box::DropTop(){
+    this->Random();
+}
+
+
 

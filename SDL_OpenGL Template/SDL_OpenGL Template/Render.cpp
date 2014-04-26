@@ -12,10 +12,28 @@
 
 void RenderBox(Box &box)
 {
+    unsigned char r,g,b,a;
     
+    
+    
+    if (box.color == "color1")
+    {
+        r = 10;
+        g = 240;
+        b = 200;
+        a = 255;
+      
+    }
+    else if (box.color == "color2")
+    {
+        r = 210;
+        g = 240;
+        b = 10;
+        a = 255;
+    }
     
     glBegin(GL_QUADS);
-    glColor4ub(box.color.R , box.color.G , box.color.B , box.color.A);
+    glColor4ub(r,g,b,a);
     glVertex2f(box.x , box.y);
     glVertex2f(box.x + box.width, box.y);
     glVertex2f(box.x + box.width, box.y + box.height);
