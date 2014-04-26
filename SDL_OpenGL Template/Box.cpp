@@ -72,14 +72,14 @@ void Box::Random(){
 
 void Box::Drop(Box &aboveBox){
     
-    color = "color3";
+    color = aboveBox.color;
     
 
 }
 
 void Box::DropTop(){
-    //this->Random();
-    color = "color3";
+    this->Random();
+    //color = "color3";
 
 }
 

@@ -10,7 +10,7 @@
 
 #define offset_x 101
 #define offset_y 75
-#define Extra 28
+#define Extra 5
 
 
 void RenderPowerBar(PowerBar &powerbar)
@@ -75,13 +75,7 @@ void RenderBox(Box &box)
         b = 255;
         a = 125;
     }
-    else if(box.color == "color3")
-    {
-        r = 255;
-        g = 255;
-        b = 255;
-        a = 255;
-    }
+    
     
     glBegin(GL_QUADS);
     glColor4ub(r,g,b,a);
