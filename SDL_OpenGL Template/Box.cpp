@@ -10,6 +10,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define WIDTH 75
+#define HEIGHT 75
+
 using namespace std;
 
 
@@ -17,8 +20,8 @@ Box::Box(int xCord, int yCord){
 
     x = xCord;
     y = yCord;
-    width = 50;
-    height = 50;
+    width = WIDTH;
+    height = HEIGHT;
     claimed = false;
 
 }
@@ -29,8 +32,8 @@ void Box::set(int xCord, int yCord){
     
     x = xCord;
     y = yCord;
-    width = 50;
-    height = 50;
+    width = WIDTH;
+    height = HEIGHT;
     
     
     
@@ -60,6 +63,8 @@ void Box::Random(){
     {
         color = "color2";
     }
+    
+    
     
     
     
