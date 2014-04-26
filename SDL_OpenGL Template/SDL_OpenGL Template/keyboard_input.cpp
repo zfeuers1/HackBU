@@ -19,6 +19,9 @@ void get_keyboard_input(player_input *input)
     
     //cout << "SDL is Running\n";
     
+  
+    bool keystate = false;
+    bool last_keystate = false;
     
     bool lastDown = false;
     bool down = false;
@@ -29,9 +32,12 @@ void get_keyboard_input(player_input *input)
         
     
     
-    while ( SDL_PollEvent(&event) )
+    if ( SDL_PollEvent(&event) )
     {
         
+
+        
+
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_a))
             input->p1_left = true;
         else
@@ -47,13 +53,15 @@ void get_keyboard_input(player_input *input)
         else
             input->p1_up = false;
         
+        
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_s))
         {
             input->p1_down = true;
-            break;
-        }else
-            input->p1_down = false;
         }
+        
+        else
+            input->p1_down = false;
+
         
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_LSHIFT))
@@ -93,10 +101,11 @@ void get_keyboard_input(player_input *input)
         
     
             input->quit = true;
+
         }
  
-        lastDown = down;
+
     }
     
     
-    
+}
