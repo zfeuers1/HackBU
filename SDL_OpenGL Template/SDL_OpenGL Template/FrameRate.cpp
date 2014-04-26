@@ -21,7 +21,6 @@ void LimitFrameRate(const int FPS, Uint32 start_time)
     if (1000/FPS>SDL_GetTicks()-start_time)
     {
         SDL_Delay(1000/FPS - (SDL_GetTicks()-start_time));
-        printf("limitiing frame rate");
     }
 }
 

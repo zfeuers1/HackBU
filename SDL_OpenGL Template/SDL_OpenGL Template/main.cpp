@@ -25,8 +25,7 @@
 #include "FrameRate.h"
 
 
-#define PLAYER1 0
-#define PLAYER2 1
+
 
 #define SCREENWIDTH 1000
 #define SCREENHEIGHT 650
@@ -49,15 +48,26 @@ void Initialize_Gameboard();
 int main(int argc, char * argv[])//** argv
 {
     
+
     int x_pos = 0;
     int y_pos = 0;
     int distance_between = 80;
+
+
+    bool PLAYER1 = 0;
+    bool PLAYER2 = 1;
+
+
+
+
     //game is 600 by 500 starting at (100,75)
 
 
     //Box firstBox(600,100);
     Player player1(PLAYER1);
     Player player2(PLAYER2);
+    player1.player = 0;
+    player2.player = 1;
 
     Box grid[4][4];
     
@@ -84,9 +94,10 @@ int main(int argc, char * argv[])//** argv
     texture = Initialize_Background_Image();
     
     
+
     UInt32 start_time;
     const int max_FPS = 60;
-    
+
     
 
     cout << "SDL is Running\n";
@@ -162,6 +173,12 @@ int main(int argc, char * argv[])//** argv
             
         }
         
+        if(input.p2_fire && !last_input.p2_fire)
+        {
+            Fire(player2, grid);
+            
+        }
+        
         last_input = input;
         
         
@@ -186,6 +203,7 @@ int main(int argc, char * argv[])//** argv
         
         
         Render_Background_Image(texture);
+
 
 
         
@@ -296,7 +314,7 @@ void Initialize_Gameboard()
     void Setup_Window_And_Rendering(int screenWidth, int screenHeight)
     {
         
-        SDL_WM_SetCaption ("Game", NULL); //window caption
+        SDL_WM_SetCaption ("Hax", NULL); //window caption
         
         SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL|SDL_ANYFORMAT); //window size, rendering settings
         

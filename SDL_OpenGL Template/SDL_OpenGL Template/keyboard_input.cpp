@@ -20,11 +20,7 @@ void get_keyboard_input(player_input *input)
     //cout << "SDL is Running\n";
     
   
-    bool keystate = false;
-    bool last_keystate = false;
-    
-    bool lastDown = false;
-    bool down = false;
+
     
     SDL_Event event;
 

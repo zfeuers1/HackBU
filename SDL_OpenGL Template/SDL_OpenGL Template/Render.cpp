@@ -25,7 +25,7 @@ void RenderBox(Box &box)
         r = 10;
         g = 240;
         b = 200;
-        a = 255;
+        a = 125;
       
     }
     else if (box.color == "color2")
@@ -33,7 +33,7 @@ void RenderBox(Box &box)
         r = 210;
         g = 240;
         b = 10;
-        a = 255;
+        a = 125;
     }
     
     glBegin(GL_QUADS);
