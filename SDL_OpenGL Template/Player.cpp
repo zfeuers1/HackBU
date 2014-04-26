@@ -7,3 +7,23 @@
 //
 
 #include "Player.h"
+
+int jump = 50;
+
+void Player::moveDown(){
+    if (position != 4) {
+        y = y + jump;
+        position++;
+    }
+}
+
+void Player::moveUp(){
+    if (position != 0) {
+        y = y - jump;
+        position--;
+    }
+}
+
+Player::Player(){
+    
+}

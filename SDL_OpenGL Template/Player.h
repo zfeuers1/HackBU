@@ -10,15 +10,9 @@
 #define __SDL_OpenGL_Template__Player__
 
 #include <iostream>
+#include "Box.h"
 
 using namespace std;
-
-struct color{
-    char R;
-    char G;
-    char B;
-    char A;
-};
 
 class Player{
 
@@ -29,6 +23,10 @@ public:
     color color;
     int height;
     int width;
+    int position;
+    void moveDown();
+    void moveUp();
+    Player();
 };
 
 
