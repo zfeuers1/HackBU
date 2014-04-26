@@ -38,7 +38,7 @@ int main(int argc, char * argv[])//** argv
     //game is 600 by 500 starting at (100,75)
 
     Box firstBox(100,100);
-
+    Player player1(0);
 
     
     int screenWidth = 1000;
@@ -74,7 +74,9 @@ int main(int argc, char * argv[])//** argv
         
         if (input.quit == true)
             runProgram = false;
-        
+        if(input.p1_down){
+            player1.moveDown();
+        }
         
         //Logic Goes Here
         
@@ -91,7 +93,7 @@ int main(int argc, char * argv[])//** argv
         
     
         RenderBox(firstBox);
-    
+        RenderPlayer(player1);
         
         
         ///////////////////////////////////////////

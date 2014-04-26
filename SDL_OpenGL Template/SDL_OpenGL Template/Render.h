@@ -25,7 +25,7 @@ using namespace std;
 
 void RenderBox(Box &box);
 
-
+void RenderPlayer(Player &play);
 
 
 #endif /* defined(__SDL_OpenGL_Template__Render__) */
