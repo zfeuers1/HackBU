@@ -53,6 +53,7 @@ int main(int argc, char * argv[])//** argv
         for (int j=0; j<4; j++) {
             grid[i][j].set(100 + x, 100 + y);
             grid[i][j].Random();
+            grid[i][j].setArrayPositions(i, j);
             y = y + 55;
         }
         x = x + 55;
@@ -97,6 +98,7 @@ int main(int argc, char * argv[])//** argv
             runProgram = false;
 
         }
+    
         
         
         
@@ -113,7 +115,7 @@ int main(int argc, char * argv[])//** argv
         }
         if(input.p1_fire && !last_input.p1_fire)
         {
-            //Fire(player1,boxArray);
+            Fire(player1, grid);
         
         }
         

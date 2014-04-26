@@ -15,7 +15,7 @@
 #include "Player.h"
 
 
-void Fire(Player &player, Box *Gameboard);
+void Fire(Player &player, Box GameBoard[][4]);
 
 
 #endif /* defined(__HAX__Fire__) */

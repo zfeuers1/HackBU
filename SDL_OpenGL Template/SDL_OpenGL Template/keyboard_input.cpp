@@ -24,6 +24,9 @@ void get_keyboard_input(player_input *input)
     bool down = false;
     
     SDL_Event event;
+
+    input->quit = false;
+        
     
     
     while ( SDL_PollEvent(&event) )
@@ -86,8 +89,12 @@ void get_keyboard_input(player_input *input)
             input->p2_fire = false;
         
         if (((event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_ESCAPE)) || event.type == SDL_QUIT)
-            input->quit = true;
+        {
         
+    
+            input->quit = true;
+        }
+ 
         lastDown = down;
     }
     
