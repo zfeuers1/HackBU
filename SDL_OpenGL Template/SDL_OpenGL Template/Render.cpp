@@ -15,13 +15,11 @@ void RenderBox(Box &box)
     
     
     glBegin(GL_QUADS);
-    glColor4ub(box.color.R,box.color.G,box.color.B,box.color.A);
-    glVertex2f(350,10);
-    glVertex2f(200,10);
-    glColor4ub(255,150,0,255);
-    glVertex2f(200,60);
-    glVertex2f(350,60);
-    
+    glColor4ub(box.color.R , box.color.G , box.color.B , box.color.A);
+    glVertex2f(box.x , box.y);
+    glVertex2f(box.x + box.width, box.y);
+    glVertex2f(box.x + box.width, box.y + box.height);
+    glVertex2f(box.x , box.y + box.height);
     glEnd();
     
     
