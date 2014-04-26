@@ -13,6 +13,19 @@
 #define Extra 5
 
 
+
+void RenderAnimation(NSView *view)
+{
+    glBegin(GL_QUADS);
+    glColor4ub(235,120,33,255);
+    glVertex2f(view.frame.origin.x + offset_x , view.frame.origin.y + offset_y+Extra);
+    glVertex2f(view.frame.origin.x + view.frame.size.width + offset_x , view.frame.origin.y + offset_y +Extra);
+    glVertex2f(view.frame.origin.x + view.frame.size.width + offset_x, view.frame.origin.y + view.frame.size.height + offset_y+Extra);
+    glVertex2f(view.frame.origin.x + offset_x, view.frame.origin.y + view.frame.size.height + offset_y+Extra);
+    glEnd();
+}
+
+
 void RenderPowerBar(PowerBar &powerbar)
 {
     unsigned char r,g,b,a;

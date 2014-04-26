@@ -21,11 +21,31 @@ void DropBoxes(Box GameBoard[][8],array_coordinate *targets_to_be_destroyed, int
 void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count);
 
 
+
+void shrinkBox(Box &box)
+{
+    
+    int amount = 10;
+    box.width -= amount;
+    box.height -= amount;
+    box.x += amount/2.0;
+    box.y += amount/2.0;
+    
+    
+    //SDL_Delay(100);
+}
+
 bool Fire(Player &player, Box GameBoard[][8])
 {
     for(int i=0;i<8;i++){
         for(int j=0;j<8;j++){
+
             GameBoard[i][i].claimed=false;
+            GameBoard[i][j].width = GameBoard[i][j].original_width;
+            GameBoard[i][j].height = GameBoard[i][j].original_height;
+            
+            GameBoard[i][j].x = GameBoard[i][j].original_x;
+            GameBoard[i][j].y = GameBoard[i][j].original_y;
         }
     }
     
@@ -48,24 +68,27 @@ bool Fire(Player &player, Box GameBoard[][8])
         //Box target = GameBoard[0][player.array_position];
         GameBoard[0][player.array_position].claimed = true;
         
-        
+        shrinkBox(GameBoard[0][player.array_position]);
         //targets_to_be_destroyed[target_count] = &GameBoard[0][player.array_position];
         
         target_coordinates_to_be_destroyed[target_count].x = GameBoard[0][player.array_position].array_position_x;
         target_coordinates_to_be_destroyed[target_count].y = GameBoard[0][player.array_position].array_position_y;
         target_coordinates_to_be_destroyed[target_count].claimed = true;
+       
+        
         
         printf("start grid  %d : %d\n", target_coordinates_to_be_destroyed[target_count].x, target_coordinates_to_be_destroyed[target_count].y);
         target_count++;
         
-        
-        
+     
         
         
         
         SearchNeighborsOfBox(GameBoard[0][player.array_position], GameBoard, target_coordinates_to_be_destroyed, &target_count, player.player);
         
         cout <<"TARGET COUNT " << target_count << endl;
+        
+       
         
         bool player1_made_path = false;
         for (int i = 0; i < target_count; i ++ )
@@ -78,14 +101,22 @@ bool Fire(Player &player, Box GameBoard[][8])
                 player1_made_path = true;
             }
             
-            
+    
         }
+        
+        //Box *animationArray[target_count];
+
+        
         
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
         
         
-       
+        
+        
+
+        //[animationHolder removeAllObjects];
+        
         return player1_made_path;
 
         
@@ -101,6 +132,7 @@ bool Fire(Player &player, Box GameBoard[][8])
         //Box target = GameBoard[3][player.array_position];
         GameBoard[7][player.array_position].claimed = true;
         
+
         target_coordinates_to_be_destroyed[target_count].x = GameBoard[7][player.array_position].array_position_x;
         target_coordinates_to_be_destroyed[target_count].y = GameBoard[7][player.array_position].array_position_y;
         target_coordinates_to_be_destroyed[target_count].claimed = true;
@@ -134,6 +166,9 @@ bool Fire(Player &player, Box GameBoard[][8])
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
         
+        
+        //[animationHolder removeAllObjects];
+
         return player2_made_path;
         
     }
@@ -144,6 +179,12 @@ bool Fire(Player &player, Box GameBoard[][8])
 }
 
 
+
+
+
+
+
+
 //recursive search function
 
 void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne)
@@ -151,6 +192,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
     //calling claimed int the wrong place
     
     Box neighbor;
+    
+    
     
     //search above box
     
@@ -170,6 +213,10 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
             targets_to_be_destroyed[*count].claimed = true;
             
             GameBoard[box.array_position_x ][box.array_position_y - 1].claimed = true;
+
+            shrinkBox(GameBoard[box.array_position_x ][box.array_position_y - 1]);
+//
+
             
             
             *count += 1;
@@ -198,6 +245,10 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
             targets_to_be_destroyed[*count].claimed = true;
             
             GameBoard[box.array_position_x ][box.array_position_y + 1].claimed = true;
+            
+        
+            shrinkBox(GameBoard[box.array_position_x ][box.array_position_y + 1]);
+
             
             
             *count += 1;
@@ -234,6 +285,8 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
                 targets_to_be_destroyed[*count].claimed = true;
                 
                 GameBoard[box.array_position_x + 1 ][box.array_position_y].claimed = true;
+         
+                shrinkBox(GameBoard[box.array_position_x + 1 ][box.array_position_y]);
                 
                 
                 *count += 1;
@@ -267,6 +320,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
                 targets_to_be_destroyed[*count].claimed = true;
                 GameBoard[box.array_position_x - 1 ][box.array_position_y].claimed = true;
                 
+                shrinkBox(GameBoard[box.array_position_x - 1 ][box.array_position_y]);
                 
                 
                 *count += 1;

@@ -23,18 +23,28 @@ Box::Box(int xCord, int yCord){
     width = WIDTH;
     height = HEIGHT;
     claimed = false;
+    
+    original_x = xCord;
+    original_y = yCord;
 
+    original_height = WIDTH;
+    original_width = HEIGHT;
 
 }
 Box::Box(){}
 
 void Box::set(int xCord, int yCord){
  
+    original_x = xCord;
+    original_y = yCord;
     
     x = xCord;
     y = yCord;
     width = WIDTH;
     height = HEIGHT;
+    
+    original_height = WIDTH;
+    original_width = HEIGHT;
     
     
     
@@ -78,6 +88,8 @@ void Box::Drop(Box &aboveBox){
     
     color = aboveBox.color;
     
+    
+    //transition above color to SW
 
 }
 

@@ -99,6 +99,9 @@ int main(int argc, char * argv[])//** argv
     cout << "SDL is Running\n";
     cout << "OpenGL is Running\n";
 
+
+    
+    
     bool runProgram = true;
     bool menu = true;
     
@@ -108,6 +111,7 @@ int main(int argc, char * argv[])//** argv
     bool player1_made_path = false;
     bool player2_made_path = false;
     
+
     while (menu) {
         
         start_time = SDL_GetTicks();
@@ -150,6 +154,9 @@ int main(int argc, char * argv[])//** argv
         
     }
     
+
+    bool should_animate = false;
+
     
 	while (runProgram) //Begin main program loop
 	{
@@ -192,11 +199,14 @@ int main(int argc, char * argv[])//** argv
         if(input.p1_fire && !last_input.p1_fire)
         {
             player1_made_path = Fire(player1, grid);
+            
+            //should_animate = true;
         
         }
         else
         {
             player1_made_path = false;
+            should_animate = false;
         }
         
         
@@ -215,11 +225,12 @@ int main(int argc, char * argv[])//** argv
         if(input.p2_fire && !last_input.p2_fire)
         {
             player2_made_path = Fire(player2, grid);
-            
+            //should_animate = true;
         }
         else
         {
             player2_made_path = false;
+            should_animate = false;
         }
         
         
@@ -259,12 +270,16 @@ int main(int argc, char * argv[])//** argv
         /////////////////////////////////////////////
         
         Render_Background_Image(texture);
+
         
         //things to render goes here
         
         for (int i = 0; i <8; i++) {
             for(int j=0; j<8;j++){
-                 RenderBox(grid[i][j]);
+                
+                RenderBox(grid[i][j]);
+
+                
             }
         }
        
@@ -274,6 +289,7 @@ int main(int argc, char * argv[])//** argv
         
         RenderPowerBar(power_bar1);
         RenderPowerBar(power_bar2);
+        
 
         
         ///////////////////////////////////////////
