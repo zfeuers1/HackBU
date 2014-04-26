@@ -7,7 +7,8 @@
 //
 
 #include "Fire.h"
-
+#include <iostream>
+using namespace std;
 //need number of columns (4)
 
 //(int p[][numCols]
@@ -19,7 +20,7 @@ struct array_coordinate {
 };
 
 void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne);
-
+void DropBoxes(array_coordinate *targets_to_be_destroyed, int *count);
 
 void Fire(Player &player, Box GameBoard[][4])
 {
@@ -76,7 +77,7 @@ void Fire(Player &player, Box GameBoard[][4])
 
         
         
-        
+        DropBoxes(target_coordinates_to_be_destroyed, &target_count);
         
         
         
@@ -240,7 +241,40 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
 
 
 
+void DropBoxes(array_coordinate *targets_to_be_destroyed, int *count){
+    for(int i=0;i<*count;i++){
+    
+        cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
+    }
+    
+    int temp;
+    array_coordinate tempArray[16];
+    
+       
+    
+    
+    
+    
+    
+    for (int colm = 0; colm < *count ; colm++) {
+            if(targets_to_be_destroyed[colm].x == targets_to_be_destroyed[colm + 1].x){
+                if(targets_to_be_destroyed[colm].y < targets_to_be_destroyed[colm + 1].y){
+                    temp = targets_to_be_destroyed[colm].y;
+                    targets_to_be_destroyed[colm].y = targets_to_be_destroyed[colm+1].y;
+                    targets_to_be_destroyed[colm+1].y = temp;
+                }
+            
+        
+            }
+        }
+    
+    cout << "Sorted" << endl;
+    for(int i=0;i<*count;i++){
+        
+        cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
+    }
 
+}
 
 
 

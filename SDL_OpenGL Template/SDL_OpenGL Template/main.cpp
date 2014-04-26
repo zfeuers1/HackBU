@@ -161,7 +161,7 @@ int main(int argc, char * argv[])//** argv
         /////////////////////////////////////////////
         
         
-        //BackGround();
+        BackGround();
        
         
         
@@ -211,7 +211,7 @@ int main(int argc, char * argv[])//** argv
     void Setup_Window_And_Rendering(int screenWidth, int screenHeight)
     {
         
-        SDL_WM_SetCaption ("Game", NULL); //window caption
+        SDL_WM_SetCaption ("Hax", NULL); //window caption
         
         SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL|SDL_ANYFORMAT); //window size, rendering settings
         
@@ -241,7 +241,7 @@ int main(int argc, char * argv[])//** argv
 void BackGround(){
     GLuint TextureID = 0;
     
-    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
     
     glGenTextures(1, &TextureID);
     glBindTexture(GL_TEXTURE_2D, TextureID);
