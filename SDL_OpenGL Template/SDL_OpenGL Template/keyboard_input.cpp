@@ -25,15 +25,19 @@ void get_keyboard_input(player_input *input)
     SDL_Event event;
 
     input->quit = false;
-        
+    input->startAI = false;
     input->start = false;
     
     if ( SDL_PollEvent(&event) )
     {
-        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_RETURN))
+        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_2))
             input->start = true;
         else
             input->start = false;
+        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_1))
+            input->startAI = true;
+        else
+            input->startAI = false;
         
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_v))
