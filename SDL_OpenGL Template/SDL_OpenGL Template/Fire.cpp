@@ -28,9 +28,6 @@ bool Fire(Player &player, Box GameBoard[][8])
             GameBoard[i][i].claimed=false;
         }
     }
-    //printf("player position : %d \n", player.array_position);
-    
-    //Box *targets_to_be_destroyed[16];
     
     array_coordinate target_coordinates_to_be_destroyed[64];
     

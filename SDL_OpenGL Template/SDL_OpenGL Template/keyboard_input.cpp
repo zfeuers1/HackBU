@@ -26,10 +26,15 @@ void get_keyboard_input(player_input *input)
 
     input->quit = false;
         
-    
+    input->start = false;
     
     if ( SDL_PollEvent(&event) )
     {
+        if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_RETURN))
+            input->start = true;
+        else
+            input->start = false;
+        
         
         if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_v))
             input->v_pressed = true;

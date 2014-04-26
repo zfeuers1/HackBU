@@ -25,7 +25,7 @@ using namespace std;
 
 
 void RenderBox(Box &box);
-
+void RenderBearcat();
 
 void RenderPowerBar(PowerBar &powerbar);
 

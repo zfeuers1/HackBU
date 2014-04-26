@@ -24,9 +24,6 @@
 
 #include "FrameRate.h"
 
-
-
-
 #define SCREENWIDTH 1000
 #define SCREENHEIGHT 650
 
@@ -42,13 +39,13 @@ void Render_Background_Image(GLuint textureID);
 GLuint Initialize_Background_Image();
 
 
+
 void Initialize_Gameboard();
 
 
 int main(int argc, char * argv[])//** argv
 {
     
-
     int x_pos = 0;
     int y_pos = 0;
     int distance_between = 40;
@@ -57,13 +54,9 @@ int main(int argc, char * argv[])//** argv
     bool PLAYER1 = 0;
     bool PLAYER2 = 1;
 
+ //game is 600 by 500 starting at (100,75)
 
 
-
-    //game is 600 by 500 starting at (100,75)
-
-
-    
     PowerBar power_bar1(PLAYER1);
     PowerBar power_bar2(PLAYER2);
     
@@ -95,8 +88,7 @@ int main(int argc, char * argv[])//** argv
     Initialize_Memory_Attributes();
 	Setup_Window_And_Rendering(SCREENWIDTH, SCREENHEIGHT);
     GLuint texture;
-    texture = Initialize_Background_Image();
-    
+    texture =Initialize_Background_Image();
     
 
     UInt32 start_time;
@@ -108,13 +100,56 @@ int main(int argc, char * argv[])//** argv
     cout << "OpenGL is Running\n";
 
     bool runProgram = true;
-    
+    bool menu = true;
     
     player_input input;
     player_input last_input;
     
     bool player1_made_path = false;
     bool player2_made_path = false;
+    
+    while (menu) {
+        
+        start_time = SDL_GetTicks();
+        
+		get_keyboard_input(&input);
+        
+        if (input.start)
+        {
+            menu = false;
+            
+        }
+        if (input.quit)
+        {
+            menu = false;
+            runProgram = false;
+            
+        }
+        
+        
+        
+        
+        
+        //Render to the screen
+		glClear(GL_COLOR_BUFFER_BIT);
+		glPushMatrix();//start phase
+		glOrtho(0,SCREENWIDTH,SCREENHEIGHT,0,-1,1);//set the matrix
+        /////////////////////////////////////////////
+        
+        Render_Background_Image(texture);
+
+        RenderBearcat();
+        
+        
+        
+        ///////////////////////////////////////////
+		glPopMatrix();//end
+		SDL_GL_SwapBuffers();//re-drawsf
+        
+        LimitFrameRate(max_FPS, start_time);
+        
+    }
+    
     
 	while (runProgram) //Begin main program loop
 	{
@@ -223,11 +258,7 @@ int main(int argc, char * argv[])//** argv
 		glOrtho(0,SCREENWIDTH,SCREENHEIGHT,0,-1,1);//set the matrix
         /////////////////////////////////////////////
         
-        
         Render_Background_Image(texture);
-
-
-
         
         //things to render goes here
         
@@ -249,17 +280,7 @@ int main(int argc, char * argv[])//** argv
 		glPopMatrix();//end
 		SDL_GL_SwapBuffers();//re-drawsf
         
-      
-       
-       
-        
-       
-        
-        
         LimitFrameRate(max_FPS, start_time);
-        
-        
-        
         
         
     }//end while
@@ -273,9 +294,6 @@ int main(int argc, char * argv[])//** argv
     
     return 0;
 }//end main
-
-
-
 
 
 /*
@@ -296,14 +314,6 @@ void Initialize_Gameboard()
 {
     
 }
-
-
-
-
-
-
-
-
 
 
 /*
@@ -392,6 +402,10 @@ GLuint Initialize_Background_Image()
     return TextureID;
 }
 
+
+
+
+
 void Render_Background_Image(GLuint textureID)
 {
   
@@ -415,3 +429,8 @@ void Render_Background_Image(GLuint textureID)
     glDisable(GL_TEXTURE_2D);
 
 }
+
+
+
+
+

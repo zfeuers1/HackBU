@@ -103,3 +103,247 @@ void RenderPlayer(Player &player){
 }
 
 
+void RenderBearcat(){
+
+    
+    
+    
+    int r = 40;
+    int g = 230;
+    int b = 40;
+    int a = 90;
+    
+    int x = 50;
+    int y = 100;
+    int height = 80;
+    int width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+
+    x = 100;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 170;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + 80,  y + height + offset_y);
+    glVertex2f(x + 70, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 170;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + 140,  y + height + offset_y);
+    glVertex2f(x + 130, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 235;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 245;
+    y = 100;
+    height = 10;
+    width = 50;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 245;
+    y = 170;
+    height = 10;
+    width = 50;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 325;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 335;
+    y = 140;
+    height = 30;
+    width = 8;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + offset_x, y + offset_y + 14);
+    glVertex2f(x + width + offset_x + 40, y + height + offset_y - 70);
+    glVertex2f(x + offset_x + 32, y + height + offset_y - 70);
+    glEnd();
+
+
+    
+    x = 346;
+    y = 141;
+    height = 20;
+    width = 6;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + offset_x + 8, y + offset_y -8);
+    glVertex2f(x + width + offset_x + 36, y + height + offset_y + 18);
+    glVertex2f(x + offset_x + 28, y + height + offset_y + 18);
+    glEnd();
+    
+    
+    x = 455;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 410;
+    y = 100;
+    height = 10;
+    width = 45;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 410;
+    y = 135;
+    height = 10;
+    width = 45;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 410;
+    y = 170;
+    height = 10;
+    width = 45;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    
+    x = 500;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 550;
+    y = 100;
+    height = 80;
+    width = 10;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+    x = 510;
+    y = 170;
+    height = 10;
+    width = 40;
+    
+    glBegin(GL_QUADS);
+    glColor4ub(r, g , b , a);
+    glVertex2f(x + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + offset_y);
+    glVertex2f(x + width + offset_x, y + height + offset_y);
+    glVertex2f(x + offset_x, y + height + offset_y);
+    glEnd();
+    
+}
+
+

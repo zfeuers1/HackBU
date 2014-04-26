@@ -35,12 +35,6 @@ void GetFrameRate(float *frameCount, Uint32 *CurrentTime, Uint32 *PreviousTime, 
     
     Uint32 timeInterval = *CurrentTime - *PreviousTime;
     
-//   
-//    if ((1000/max_fps > timeInterval) && should_cap)
-//    {
-//        SDL_Delay(1000/max_fps - (timeInterval));
-//        printf("delay");
-//    }
     if (timeInterval > 15)
     {
         
@@ -51,11 +45,5 @@ void GetFrameRate(float *frameCount, Uint32 *CurrentTime, Uint32 *PreviousTime, 
         
     }
     
-    
-    
-
-    
-
-    //cout << "Frame Rate = " << *fps <<endl;
     
 }

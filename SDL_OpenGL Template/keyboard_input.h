@@ -25,7 +25,7 @@ struct player_input{
     bool p1_up;
     bool p1_down;
     bool p1_fire;
-    
+    bool start;
     bool p2_left;
     bool p2_right;
     bool p2_up;
