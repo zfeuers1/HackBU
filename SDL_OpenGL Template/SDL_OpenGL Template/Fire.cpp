@@ -81,7 +81,7 @@ void Fire(Player &player, Box GameBoard[][4])
         SortBoxes(target_coordinates_to_be_destroyed, &target_count);
         //DropColumn(0, GameBoard, target_coordinates_to_be_destroyed, &target_count);
         DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
-    
+        
         
         //once target is aquired, calculate longest path,
         
@@ -137,8 +137,8 @@ void Fire(Player &player, Box GameBoard[][4])
         
         
         
-               SortBoxes(target_coordinates_to_be_destroyed, &target_count);
-               DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
+        SortBoxes(target_coordinates_to_be_destroyed, &target_count);
+        DropBoxes(GameBoard, target_coordinates_to_be_destroyed, &target_count);
         
     }
     
@@ -446,64 +446,64 @@ void DropBoxes(Box GameBoard[][4],array_coordinate *targets_to_be_destroyed, int
     for(int colm = 0; colm < 4; colm++){
         while(targets_to_be_destroyed[i].x == colm){
             
+            
+            if(targets_to_be_destroyed[i].y == 0){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                cout << "Colm = " << colm << endl;
+                cout << "Destroy Top" << endl;
                 
-                if(targets_to_be_destroyed[i].y == 0){
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].DropTop();
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
-                    cout << "Colm = " << colm << endl;
-                    cout << "Destroy Top" << endl;
-                    
-                }else if(targets_to_be_destroyed[i].y == 1){
-                    
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
-                                                                                               GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
-                    
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].DropTop();
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].claimed=false;
-                    cout << "Colm = " << colm << endl;
-                    
-                    cout << "Destroy 2" << endl;
-                    cout << "Destroy Top" << endl;
-                }else if(targets_to_be_destroyed[i].y == 2){
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
-                                                                                               GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -1].Drop(
-                                                                                                  GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2].DropTop();
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
-                    cout << "Colm = " << colm << endl;
-                    
-                    cout << "Destroy 3" << endl;
-                    cout << "Destroy 2" << endl;
-                    cout << "Destroy Top" << endl;
-                    
-                }else if(targets_to_be_destroyed[i].y == 3){
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
-                                                                                               GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
-                    
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
-                                                                                                 GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
-                                                                                                  GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3].DropTop();
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
-                    GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
-                    cout << "Colm = " << colm << endl;
-                    
-                    cout << "Destroy 4" << endl;
-                    cout << "Destroy 3" << endl;
-                    cout << "Destroy 2" << endl;
-                    cout << "Destroy Top" << endl;
-                    
+            }else if(targets_to_be_destroyed[i].y == 1){
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1].claimed=false;
+                cout << "Colm = " << colm << endl;
+                
+                cout << "Destroy 2" << endl;
+                cout << "Destroy Top" << endl;
+            }else if(targets_to_be_destroyed[i].y == 2){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -1].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                cout << "Colm = " << colm << endl;
+                
+                cout << "Destroy 3" << endl;
+                cout << "Destroy 2" << endl;
+                cout << "Destroy Top" << endl;
+                
+            }else if(targets_to_be_destroyed[i].y == 3){
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].Drop(
+                                                                                           GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 1]);
+                
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].Drop(
+                                                                                             GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 2]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y -2].Drop(
+                                                                                              GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3]);
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y - 3].DropTop();
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-1].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-2].claimed=false;
+                GameBoard[targets_to_be_destroyed[i].x][targets_to_be_destroyed[i].y-3].claimed=false;
+                cout << "Colm = " << colm << endl;
+                
+                cout << "Destroy 4" << endl;
+                cout << "Destroy 3" << endl;
+                cout << "Destroy 2" << endl;
+                cout << "Destroy Top" << endl;
+                
+            }
+            i++;
         }
-        i++;
-    }
-    
+        
     }
 }
 

@@ -372,7 +372,9 @@ GLuint Initialize_Background_Image()
 {
     GLuint TextureID = 0;
     
+
     SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
+
     
     glGenTextures(1, &TextureID);
     glBindTexture(GL_TEXTURE_2D, TextureID);

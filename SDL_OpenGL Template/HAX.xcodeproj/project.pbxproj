@@ -22,6 +22,7 @@
 		92FDEA1F190A2A5600DD9DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA19190A29E700DD9DFC /* Foundation.framework */; };
 		92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA17190A296100DD9DFC /* SDLMain.m */; };
 		C0E2271E190B4CA000D7B806 /* keyboard_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */; };
+		C0E22721190BE14E00D7B806 /* Reduce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271F190BE14E00D7B806 /* Reduce.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,8 @@
 		92FDEA1D190A29F500DD9DFC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C0E2271B190B4C7500D7B806 /* keyboard_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keyboard_input.h; path = ../keyboard_input.h; sourceTree = "<group>"; };
 		C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = keyboard_input.cpp; sourceTree = "<group>"; };
+		C0E2271F190BE14E00D7B806 /* Reduce.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Reduce.cpp; sourceTree = "<group>"; };
+		C0E22720190BE14E00D7B806 /* Reduce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reduce.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				92123946190BB35600F31DBF /* FrameRate.cpp */,
 				92123947190BB35600F31DBF /* FrameRate.h */,
 				92123943190B627B00F31DBF /* Fire.cpp */,
+				C0E2271F190BE14E00D7B806 /* Reduce.cpp */,
+				C0E22720190BE14E00D7B806 /* Reduce.h */,
 				92123944190B627B00F31DBF /* Fire.h */,
 				9212393F190B3EC900F31DBF /* Render.cpp */,
 				92123940190B3EC900F31DBF /* Render.h */,
@@ -182,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E22721190BE14E00D7B806 /* Reduce.cpp in Sources */,
 				92123945190B627B00F31DBF /* Fire.cpp in Sources */,
 				9212394B190BC60B00F31DBF /* PowerBar.cpp in Sources */,
 				14798D35190B3A070081C96A /* Player.cpp in Sources */,

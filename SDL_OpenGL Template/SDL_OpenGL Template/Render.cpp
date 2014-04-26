@@ -46,6 +46,7 @@ void RenderPowerBar(PowerBar &powerbar)
 }
 
 
+
 void RenderBox(Box &box)
 {
     unsigned char r,g,b,a;
@@ -69,13 +70,14 @@ void RenderBox(Box &box)
         g = 240;
         b = 10;
         a = 65;
-    }else if(box.color =="color3"){
+    }
+    else if(box.color =="color3"){
         r = 255;
         g = 255;
         b = 255;
         a = 125;
     }
-    
+
     
     glBegin(GL_QUADS);
     glColor4ub(r,g,b,a);
@@ -85,6 +87,7 @@ void RenderBox(Box &box)
     glVertex2f(box.x + offset_x, box.y + box.height + offset_y);
     glEnd();
     
+
 }
 
 void RenderPlayer(Player &player){
@@ -98,3 +101,5 @@ void RenderPlayer(Player &player){
     glEnd();
     
 }
+
+
