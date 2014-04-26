@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92A3D0F5190AECE40097134E /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A3D0F4190AECE40097134E /* SDL_image.framework */; };
-		92A3D0F7190AED150097134E /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A3D0F6190AED150097134E /* SDL.framework */; };
+		14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CB190B2DB100642EFA /* SDL_image.framework */; };
+		14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CC190B2DB100642EFA /* SDL.framework */; };
 		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
 		92FDEA0E190A28D100DD9DFC /* SDL_OpenGL_Template.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */; };
 		92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */; };
@@ -31,8 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		92A3D0F4190AECE40097134E /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
-		92A3D0F6190AED150097134E /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
+		14DEA6CB190B2DB100642EFA /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
+		14DEA6CC190B2DB100642EFA /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
 		92A3D0FA190AF34A0097134E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		92FDEA08190A28D100DD9DFC /* SDL_OpenGL Template */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SDL_OpenGL Template"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +50,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */,
 				92FDEA1F190A2A5600DD9DFC /* Foundation.framework in Frameworks */,
+				14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */,
 				92FDEA1E190A29F500DD9DFC /* OpenGL.framework in Frameworks */,
-				92A3D0F7190AED150097134E /* SDL.framework in Frameworks */,
-				92A3D0F5190AECE40097134E /* SDL_image.framework in Frameworks */,
 				92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,12 +67,12 @@
 				92FDEA1D190A29F500DD9DFC /* OpenGL.framework */,
 				92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */,
 				92FDEA19190A29E700DD9DFC /* Foundation.framework */,
-				92A3D0F4190AECE40097134E /* SDL_image.framework */,
 				92FDEA0A190A28D100DD9DFC /* SDL_OpenGL Template */,
 				92FDEA09190A28D100DD9DFC /* Products */,
 				92FDEA16190A296100DD9DFC /* SDLMain.h */,
 				92FDEA17190A296100DD9DFC /* SDLMain.m */,
-				92A3D0F6190AED150097134E /* SDL.framework */,
+				14DEA6CB190B2DB100642EFA /* SDL_image.framework */,
+				14DEA6CC190B2DB100642EFA /* SDL.framework */,
 			);
 			sourceTree = "<group>";
 		};

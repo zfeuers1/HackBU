@@ -21,12 +21,6 @@ void Initialize_Memory_Attributes();
 void Setup_Window_And_Rendering(int screenWidth, int screenHeight);
 
 
-
-
-
-
-
-
 int main(int argc, char * argv[])//** argv
 {
 
@@ -40,12 +34,6 @@ int main(int argc, char * argv[])//** argv
 	SDL_Init(SDL_INIT_EVERYTHING);
     Initialize_Memory_Attributes();
 	Setup_Window_And_Rendering(screenWidth, screenHeight);
-    
-    
-    
-
- 
-    
     
     
     cout << "SDL is Running\n";
@@ -113,6 +101,9 @@ int main(int argc, char * argv[])//** argv
     
     
     SDL_Quit();
+    cout << "SDL quit\n";
+    cout << "OpenGL quit\n";
+
     
     return 0;
 }//end main

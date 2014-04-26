@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B8465669-D123-4B40-A956-0F6B875362A1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SDL_OpenGL Template</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F3961DAD-D6E2-451D-B3CE-E0524BE6C08D</key>
+		<string>ssh://github.com/zfeuers1/HackBU.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SDL_OpenGL Template/SDL_OpenGL Template.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F3961DAD-D6E2-451D-B3CE-E0524BE6C08D</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/zfeuers1/HackBU.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F3961DAD-D6E2-451D-B3CE-E0524BE6C08D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F3961DAD-D6E2-451D-B3CE-E0524BE6C08D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HackBU</string>
+		</dict>
+	</array>
+</dict>
+</plist>
