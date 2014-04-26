@@ -24,7 +24,7 @@ Box::Box(int xCord, int yCord){
     height = 50;
     
     random = rand() % 2 + 1;
-    cout << random;
+    cout << "Random = " << random  << endl;
     if (random == 1) {
         color.R = 10;
         color.G = 240;
