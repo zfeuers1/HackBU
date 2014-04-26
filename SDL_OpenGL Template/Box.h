@@ -10,6 +10,7 @@
 #define __SDL_OpenGL_Template__Box__
 
 #include <iostream>
+#import "Foundation/Foundation.h"
 
 using namespace std;
 

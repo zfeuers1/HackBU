@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 Box::Box(int xCord, int yCord){
 
     x = xCord;
@@ -38,9 +39,8 @@ void Box::Random(){
 
     int random;
     
-    srand (time(NULL));
+    random = arc4random() % 2;
     
-    random = rand() % 2;
     cout << "Random = " << random  << endl;
     if (random == 1) {
         color.R = 10;
@@ -54,4 +54,7 @@ void Box::Random(){
         color.A= 255;
     }
 }
+
+
+
 
