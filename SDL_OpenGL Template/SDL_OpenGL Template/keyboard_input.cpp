@@ -93,8 +93,3 @@ void get_keyboard_input(player_input *input)
     
     
     
-    
-    
-    
-    
-}

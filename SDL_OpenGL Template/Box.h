@@ -29,6 +29,9 @@ public:
     int width;
     int height;
     Box(int xCord, int yCord);
+    Box();
+    void set(int xCord, int yCord);
+    void Random();
 };
 
 #endif /* defined(__SDL_OpenGL_Template__Box__) */

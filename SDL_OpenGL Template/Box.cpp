@@ -13,17 +13,34 @@
 using namespace std;
 
 Box::Box(int xCord, int yCord){
-    
-    int random;
-    
-    srand (time(NULL));
 
     x = xCord;
     y = yCord;
     width = 50;
     height = 50;
+
+}
+Box::Box(){}
+
+void Box::set(int xCord, int yCord){
+ 
     
-    random = rand() % 2 + 1;
+    x = xCord;
+    y = yCord;
+    width = 50;
+    height = 50;
+    
+    
+    
+}
+
+void Box::Random(){
+
+    int random;
+    
+    srand (time(NULL));
+    
+    random = rand() % 2;
     cout << "Random = " << random  << endl;
     if (random == 1) {
         color.R = 10;
