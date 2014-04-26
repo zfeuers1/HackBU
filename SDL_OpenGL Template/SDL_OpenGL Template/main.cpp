@@ -21,6 +21,7 @@
 #include "Fire.h"
 
 #include "keyboard_input.h"
+#include "../src/SOIL.h"
 
 #define PLAYER1 0
 #define PLAYER2 1
@@ -30,13 +31,12 @@ using namespace std;
 
 void Initialize_Memory_Attributes();
 void Setup_Window_And_Rendering(int screenWidth, int screenHeight);
-
-
+void BackGround();
 
 
 int main(int argc, char * argv[])//** argv
 {
-    
+   
     int x = 0;
     int y = 0;
 
@@ -71,6 +71,7 @@ int main(int argc, char * argv[])//** argv
 	Setup_Window_And_Rendering(screenWidth, screenHeight);
     
     
+
     cout << "SDL is Running\n";
     cout << "OpenGL is Running\n";
 
@@ -84,6 +85,10 @@ int main(int argc, char * argv[])//** argv
     
     player_input input;
     player_input last_input;
+    
+    
+   
+    
     
 	while (runProgram) //Begin main program loop
 	{
@@ -147,14 +152,18 @@ int main(int argc, char * argv[])//** argv
         
         
         
-      
-      
+        
         
         //Render to the screen
 		glClear(GL_COLOR_BUFFER_BIT);
 		glPushMatrix();//start phase
 		glOrtho(0,screenWidth,screenHeight,0,-1,1);//set the matrix
         /////////////////////////////////////////////
+        
+        
+        BackGround();
+       
+        
         
         //things to render goes here
         
@@ -166,7 +175,9 @@ int main(int argc, char * argv[])//** argv
        
 
         RenderPlayer(player1);
+
         RenderPlayer(player2);
+
         
         ///////////////////////////////////////////
 		glPopMatrix();//end
@@ -203,9 +214,11 @@ int main(int argc, char * argv[])//** argv
         
         SDL_WM_SetCaption ("Game", NULL); //window caption
         
-        SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL); //window size, rendering settings
-
+        SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL|SDL_ANYFORMAT); //window size, rendering settings
         
+        
+
+
         //draw something every frame
         glClearColor(1,1,1,1); // color used to clear screen every frame
         
@@ -222,5 +235,47 @@ int main(int argc, char * argv[])//** argv
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
+        glEnable(GL_TEXTURE_2D);
        
     }
+
+void BackGround(){
+    GLuint TextureID = 0;
+    
+    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
+    
+    glGenTextures(1, &TextureID);
+    glBindTexture(GL_TEXTURE_2D, TextureID);
+    
+    int Mode = GL_RGB;
+    
+    if(Surface->format->BytesPerPixel == 4) {
+        Mode = GL_RGBA;
+    }
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, Mode, 1000, 650, 0, Mode, GL_UNSIGNED_BYTE, Surface->pixels);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    
+    glBindTexture(GL_TEXTURE_2D, TextureID);
+    
+    // For Ortho mode, of course
+    int X = 0;
+    int Y = 0;
+    int Width = 1000;
+    int Height = 650;
+    
+    glEnable(GL_TEXTURE_2D);
+    glBegin(GL_QUADS);
+    //glColor4b(255, 255, 255, 0);
+    glColor4f(1,1,1,1);
+    glTexCoord2f(0, 0); glVertex3f(X, Y, 0);
+    glTexCoord2f(1, 0); glVertex3f(X + Width, Y, 0);
+    glTexCoord2f(1, 1); glVertex3f(X + Width, Y + Height, 0);
+    glTexCoord2f(0, 1); glVertex3f(X, Y + Height, 0);
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+
+}
