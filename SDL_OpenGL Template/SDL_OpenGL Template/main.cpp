@@ -16,8 +16,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Cocoa/Cocoa.h>
 
-#import "SDL_mixer/SDL_mixer.h"
-
 #include "Box.h"
 #include "Player.h"
 #include "Render.h"
@@ -43,54 +41,9 @@ GLuint Initialize_Background_Image();
 
 
 
-//The music that will be played
-Mix_Music *music = NULL;
-
-Mix_Chunk *scratch = NULL;
-
-
-
 void Initialize_Gameboard();
 
-void clean()
-{
-     Mix_FreeChunk( scratch );
-    Mix_FreeMusic( music );
-     Mix_CloseAudio();
 
-}
-
-bool load_sound()
-{
-    music = Mix_LoadMUS("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/SDL_OpenGL Template/beep-07.mp3");
-    if (music == NULL)
-    {
-        return false;
-    }
-    else return true;
-    
-     scratch = Mix_LoadWAV( "/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/SDL_OpenGL Template/galaga0.mp3");
-
-    if(  scratch == NULL  )
-    {
-        return false;
-    }
-    
-    //If everything loaded fine
-    return true;
-    
-}
-
-bool initsound()
-{
-    //Initialize SDL_mixer
-    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-    {
-        return false;
-    }
-
-    else return true;
-}
 
 int main(int argc, char * argv[])//** argv
 {
@@ -145,18 +98,7 @@ int main(int argc, char * argv[])//** argv
     texture =Initialize_Background_Image();
     
     
-    
-    if (!initsound())
-    {
-        printf("audio init failed\n");
-        
-    }
-    
-    if (!load_sound())
-    {
-        printf("audio load failed\n");
 
-    }
     
     
     
