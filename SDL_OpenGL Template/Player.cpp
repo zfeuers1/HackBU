@@ -14,8 +14,7 @@ void Player::moveDown(){
     if (position != 3) {
         y = y + jump;
         position++;
-    }else{
-        cout << "too much";
+        array_position ++;
     }
 }
 
@@ -23,6 +22,7 @@ void Player::moveUp(){
     if (position != 0) {
         y = y - jump;
         position--;
+        array_position --;
     }
 }
 

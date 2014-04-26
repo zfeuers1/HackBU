@@ -18,11 +18,13 @@
 #include "Box.h"
 #include "Player.h"
 #include "Render.h"
+#include "Fire.h"
 
 #include "keyboard_input.h"
 
 
-
+#define PLAYER1 0
+#define PLAYER2 1
 
 
 using namespace std;
@@ -39,19 +41,25 @@ int main(int argc, char * argv[])//** argv
     int y = 0;
 
     //game is 600 by 500 starting at (100,75)
+
+
+    Box firstBox(100,100);
+    Player player1(PLAYER1);
+    Player player2(PLAYER2);
+
     Box grid[4][4];
     
     for (int i =0; i<4; i++) {
         for (int j=0; j<4; j++) {
             grid[i][j].set(100 + x, 100 + y);
             grid[i][j].Random();
+            grid[i][j].setArrayPositions(i, j);
             y = y + 55;
         }
         x = x + 55;
         y = 0;
     }
     
-    Player player1(0);
 
     
     int screenWidth = 1000;
@@ -63,26 +71,19 @@ int main(int argc, char * argv[])//** argv
 	Setup_Window_And_Rendering(screenWidth, screenHeight);
     
     
-    
-    
 
-    
-    
     cout << "SDL is Running\n";
     cout << "OpenGL is Running\n";
 
 
+
+
     bool runProgram = true;
-	bool left, right;
+
+
     
-	left = false;
-	right = false;
     
-    /*
-     *  Keyboard input stuff
-     */
     player_input input;
-    
     player_input last_input;
     
     
@@ -95,9 +96,21 @@ int main(int argc, char * argv[])//** argv
 		get_keyboard_input(&input);
         
         
-        if (input.quit == true)
+        //TODO Enumerate for each case
+        
+        if (input.quit)
+        {
             runProgram = false;
-        if(input.p1_down && !last_input.p1_down){
+
+        }
+    
+        
+        
+        
+        //Player 1 Handling
+        
+        if(input.p1_down && !last_input.p1_down)
+        {
             player1.moveDown();
         }
         if(input.p1_up && !last_input.p1_up)
@@ -105,13 +118,32 @@ int main(int argc, char * argv[])//** argv
             player1.moveUp();
    
         }
+        if(input.p1_fire && !last_input.p1_fire)
+        {
+            Fire(player1, grid);
         
+        }
         
+        //Player 2 Handling
+        
+        if(input.p2_down && !last_input.p2_down)
+        {
+            player2.moveDown();
+        }
+        if(input.p2_up && !last_input.p2_up)
+        {
+            player2.moveUp();
+            
+        }
         
         last_input = input;
+        
+        
         //END EVENT HANDLING
         
         
+        
+    
         
         
         
@@ -143,11 +175,9 @@ int main(int argc, char * argv[])//** argv
        
 
         RenderPlayer(player1);
-        
-        
-        
-       
-        
+
+
+        RenderPlayer(player2);
         ///////////////////////////////////////////
 		glPopMatrix();//end
 		SDL_GL_SwapBuffers();//re-draws

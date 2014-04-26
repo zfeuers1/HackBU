@@ -26,14 +26,23 @@ class Box{
 public:
     int x;
     int y;
-    color color;
+    string color;
     int width;
     int height;
+    int array_position_x;
+    int array_position_y;
+    bool claimed;
+    
+    
     Box(int xCord, int yCord);
     Box();
     void set(int xCord, int yCord);
     void Random();
     void Drop(Box &aboveBox);
+
+    void setArrayPositions(int i, int j);
+
+
 };
 
 #endif /* defined(__SDL_OpenGL_Template__Box__) */
