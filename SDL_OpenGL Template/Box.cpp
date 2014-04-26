@@ -16,15 +16,16 @@ Box::Box(int xCord, int yCord){
     
     int random;
     
-    srand (time_t(NULL));
+    srand (time(NULL));
 
     x = xCord;
     y = yCord;
     width = 50;
     height = 50;
     
-    random = rand() % 2;
-    if (random) {
+    random = rand() % 2 + 1;
+    cout << random;
+    if (random == 1) {
         color.R = 10;
         color.G = 240;
         color.B = 200;

@@ -24,6 +24,7 @@ public:
     int height;
     int width;
     int position;
+    
     void moveDown();
     void moveUp();
     Player(bool whichPlayer);
