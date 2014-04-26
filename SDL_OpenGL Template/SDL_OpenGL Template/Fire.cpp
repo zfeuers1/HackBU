@@ -21,6 +21,8 @@ struct array_coordinate {
 
 void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *targets_to_be_destroyed, int *count,  bool isPlayerOne);
 void DropBoxes(array_coordinate *targets_to_be_destroyed, int *count);
+void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count);
+
 
 void Fire(Player &player, Box GameBoard[][4])
 {
@@ -77,7 +79,7 @@ void Fire(Player &player, Box GameBoard[][4])
 
         
         
-        DropBoxes(target_coordinates_to_be_destroyed, &target_count);
+        SortBoxes(target_coordinates_to_be_destroyed, &target_count);
         
         
         
@@ -239,40 +241,74 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][4], array_coordinate *target
 
 }
 
+void SortBoxes(array_coordinate *targets_to_be_destroyed, int *count){
 
-
-void DropBoxes(array_coordinate *targets_to_be_destroyed, int *count){
     for(int i=0;i<*count;i++){
-    
+        
         cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
     }
     
     int temp;
+    int cnt =0;
     array_coordinate tempArray[16];
-    
-       
-    
-    
-    
-    
-    
-    for (int colm = 0; colm < *count ; colm++) {
-            if(targets_to_be_destroyed[colm].x == targets_to_be_destroyed[colm + 1].x){
-                if(targets_to_be_destroyed[colm].y < targets_to_be_destroyed[colm + 1].y){
-                    temp = targets_to_be_destroyed[colm].y;
-                    targets_to_be_destroyed[colm].y = targets_to_be_destroyed[colm+1].y;
-                    targets_to_be_destroyed[colm+1].y = temp;
-                }
-            
-        
+    for (int k = 0; k<4; k++) {
+        for (int j=0; j<*count; j++) {
+            if (targets_to_be_destroyed[j].x == k) {
+                tempArray[cnt].x = targets_to_be_destroyed[j].x;
+                tempArray[cnt].y = targets_to_be_destroyed[j].y;
+                cnt++;
             }
         }
+    }
+    
+    for(int j=0; j<*count; j++){
+        targets_to_be_destroyed[j].x = tempArray[j].x;
+        targets_to_be_destroyed[j].y =  tempArray[j].y;
+    }
+    cout << "Sorted" << endl;
+    for(int i=0;i<*count;i++){
+        
+        cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
+    }
+    
+    
+    for(int row = 0; row< *count; row++){
+        for (int colm = row; colm < *count ; colm++) {
+            if(targets_to_be_destroyed[row].x == targets_to_be_destroyed[colm + 1].x){
+                if(targets_to_be_destroyed[row].y < targets_to_be_destroyed[colm + 1].y){
+                    
+                    temp = targets_to_be_destroyed[row].y;
+                    targets_to_be_destroyed[row].y = targets_to_be_destroyed[colm+1].y;
+                    targets_to_be_destroyed[colm+1].y = temp;
+                }
+                
+                
+            }
+        }
+    }
+    
+    for(int i=0;i<*count;i++){
+        
+        if(targets_to_be_destroyed[i].y > 3){
+            targets_to_be_destroyed[i].y = 0;
+        }
+    }
     
     cout << "Sorted" << endl;
     for(int i=0;i<*count;i++){
         
         cout << targets_to_be_destroyed[i].x << ", " << targets_to_be_destroyed[i].y << endl;
     }
+    
+
+    
+    
+}
+
+void DropBoxes(array_coordinate *targets_to_be_destroyed, int *count){
+    
+    
+    
 
 }
 
