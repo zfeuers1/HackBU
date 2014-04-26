@@ -44,7 +44,7 @@
 		92123940190B3EC900F31DBF /* Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Render.h; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
 		92A3D0FA190AF34A0097134E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		92FDEA08190A28D100DD9DFC /* SDL_OpenGL Template */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SDL_OpenGL Template"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92FDEA08190A28D100DD9DFC /* HAX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HAX; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FDEA0B190A28D100DD9DFC /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = main.cpp; sourceTree = "<group>"; };
 		92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SDL_OpenGL_Template.1; sourceTree = "<group>"; };
 		92FDEA16190A296100DD9DFC /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		92FDEA09190A28D100DD9DFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92FDEA08190A28D100DD9DFC /* SDL_OpenGL Template */,
+				92FDEA08190A28D100DD9DFC /* HAX */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92FDEA07190A28D100DD9DFC /* SDL_OpenGL Template */ = {
+		92FDEA07190A28D100DD9DFC /* HAX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92FDEA11190A28D200DD9DFC /* Build configuration list for PBXNativeTarget "SDL_OpenGL Template" */;
+			buildConfigurationList = 92FDEA11190A28D200DD9DFC /* Build configuration list for PBXNativeTarget "HAX" */;
 			buildPhases = (
 				92FDEA04190A28D100DD9DFC /* Sources */,
 				92FDEA05190A28D100DD9DFC /* Frameworks */,
@@ -125,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = "SDL_OpenGL Template";
+			name = HAX;
 			productName = "SDL_OpenGL Template";
-			productReference = 92FDEA08190A28D100DD9DFC /* SDL_OpenGL Template */;
+			productReference = 92FDEA08190A28D100DD9DFC /* HAX */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Zach Lite";
 			};
-			buildConfigurationList = 92FDEA03190A28D100DD9DFC /* Build configuration list for PBXProject "SDL_OpenGL Template" */;
+			buildConfigurationList = 92FDEA03190A28D100DD9DFC /* Build configuration list for PBXProject "HAX" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92FDEA07190A28D100DD9DFC /* SDL_OpenGL Template */,
+				92FDEA07190A28D100DD9DFC /* HAX */,
 			);
 		};
 /* End PBXProject section */
@@ -251,7 +251,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAX;
 			};
 			name = Debug;
 		};
@@ -263,14 +263,14 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAX;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92FDEA03190A28D100DD9DFC /* Build configuration list for PBXProject "SDL_OpenGL Template" */ = {
+		92FDEA03190A28D100DD9DFC /* Build configuration list for PBXProject "HAX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92FDEA0F190A28D200DD9DFC /* Debug */,
@@ -279,7 +279,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92FDEA11190A28D200DD9DFC /* Build configuration list for PBXNativeTarget "SDL_OpenGL Template" */ = {
+		92FDEA11190A28D200DD9DFC /* Build configuration list for PBXNativeTarget "HAX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92FDEA12190A28D200DD9DFC /* Debug */,

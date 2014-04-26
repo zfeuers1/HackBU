@@ -15,16 +15,36 @@
 #import <AppKit/AppKit.h>
 
 
+#include "Box.h"
+#include "Player.h"
+#include "Render.h"
+
+
+
+
 using namespace std;
 
 void Initialize_Memory_Attributes();
 void Setup_Window_And_Rendering(int screenWidth, int screenHeight);
 
 
+
+
 int main(int argc, char * argv[])//** argv
 {
 
     //game is 600 by 500 starting at (100,75)
+
+    Box firstBox;
+    firstBox.x = 100;
+    firstBox.y = 100;
+    firstBox.width = 200;
+    firstBox.height = 200;
+    firstBox.color.R = 200;
+    firstBox.color.G = 150;
+    firstBox.color.B = 20;
+    firstBox.color.A = 255;
+
 
     
     int screenWidth = 1000;
@@ -82,15 +102,9 @@ int main(int argc, char * argv[])//** argv
         
         //things to render goes here
         
-        glBegin(GL_QUADS);
-        glColor4ub(23, 44, 43, 255);
-        glVertex2f(100, 100);
-        glVertex2f(200, 100);
-        glVertex2f(200, 200);
-        glVertex2f(100, 200);
-
-        glEnd();
-        
+    
+        RenderBox(firstBox);
+    
         
         
         ///////////////////////////////////////////
@@ -130,7 +144,15 @@ int main(int argc, char * argv[])//** argv
         
         SDL_SetVideoMode(screenWidth,screenHeight,32,SDL_OPENGL); //window size, rendering settings
 
-
+        
+        // load sample.png into image
+        SDL_Surface *image;
+        image=IMG_Load("background.png");
+        if(!image) {
+            printf("IMG_Load: %s\n", IMG_GetError());
+            // handle error
+        }
+    
         
         //draw something every frame
         glClearColor(1,1,1,1); // color used to clear screen every frame

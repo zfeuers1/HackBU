@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92FDEA07190A28D100DD9DFC"
                BuildableName = "SDL_OpenGL Template"
-               BlueprintName = "SDL_OpenGL Template"
-               ReferencedContainer = "container:SDL_OpenGL Template.xcodeproj">
+               BlueprintName = "HAX"
+               ReferencedContainer = "container:HAX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92FDEA07190A28D100DD9DFC"
             BuildableName = "SDL_OpenGL Template"
-            BlueprintName = "SDL_OpenGL Template"
-            ReferencedContainer = "container:SDL_OpenGL Template.xcodeproj">
+            BlueprintName = "HAX"
+            ReferencedContainer = "container:HAX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92FDEA07190A28D100DD9DFC"
             BuildableName = "SDL_OpenGL Template"
-            BlueprintName = "SDL_OpenGL Template"
-            ReferencedContainer = "container:SDL_OpenGL Template.xcodeproj">
+            BlueprintName = "HAX"
+            ReferencedContainer = "container:HAX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92FDEA07190A28D100DD9DFC"
             BuildableName = "SDL_OpenGL Template"
-            BlueprintName = "SDL_OpenGL Template"
-            ReferencedContainer = "container:SDL_OpenGL Template.xcodeproj">
+            BlueprintName = "HAX"
+            ReferencedContainer = "container:HAX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
