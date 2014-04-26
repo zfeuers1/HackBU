@@ -11,9 +11,10 @@
 int jump = 50;
 
 void Player::moveDown(){
-    if (position != 4) {
+    if (position != 3) {
         y = y + jump;
         position++;
+        array_position ++;
     }
 }
 
@@ -21,6 +22,7 @@ void Player::moveUp(){
     if (position != 0) {
         y = y - jump;
         position--;
+        array_position --;
     }
 }
 
