@@ -180,7 +180,7 @@ int main(int argc, char * argv[])//** argv
         
         if (power_bar1.isEmpty())
         {
-            sleep(1);
+            sleep(2);
             runProgram  = false;
         }
     
@@ -249,12 +249,12 @@ int main(int argc, char * argv[])//** argv
       
         else
         {
-            if (counter == max_FPS/3.0)
+            if (counter == max_FPS/10.0)
             {
                 counter = 0;
-                if (arc4random() % 100  >  50)
+                if (arc4random() % 100  >  55)
                 {
-                    if (arc4random() % 100  >  45) {
+                    if (arc4random() % 100  >  40) {
                         player2.moveDown();
                         
                     }
@@ -485,7 +485,7 @@ GLuint Initialize_Background_Image()
     GLuint TextureID = 0;
     
 
-    SDL_Surface* Surface = IMG_Load("/Users/Zach/Desktop/HackBU/SDL_OpenGL Template/background.png");
+    SDL_Surface* Surface = IMG_Load("/Users/Zack/Documents/Programming/HackBU/SDL_OpenGL Template/background.png");
 
     
     glGenTextures(1, &TextureID);
