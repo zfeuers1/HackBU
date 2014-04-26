@@ -211,38 +211,74 @@ int main(int argc, char * argv[])//** argv
         
         
         //Player 2 Handling
-        
-        if(input.p2_down && !last_input.p2_down)
+        if(!AI)
         {
-            player2.moveDown();
-        }
-        if(input.p2_up && !last_input.p2_up)
-        {
-            player2.moveUp();
+            if(input.p2_down && !last_input.p2_down)
+            {
+                player2.moveDown();
+            }
+            if(input.p2_up && !last_input.p2_up)
+            {
+                player2.moveUp();
+                
+            }
+            
+            if(input.p2_fire && !last_input.p2_fire)
+            {
+                player2_made_path = Fire(player2, grid);
+                //should_animate = true;
+            }
+            else
+            {
+                player2_made_path = false;
+            }
+            if (player2_made_path)
+            {
+                power_bar1.DecreaseHealth();
+            }
             
         }
         
-        if(input.p2_fire && !last_input.p2_fire)
-        {
-            player2_made_path = Fire(player2, grid);
-            //should_animate = true;
-        }
+      
         else
         {
-            player2_made_path = false;
-            should_animate = false;
+            if (arc4random() % 100  >  40)
+            {
+                if (arc4random() % 100  >  50) {
+                    player2.moveDown();
+
+                }
+                else
+                {
+                    player2.moveUp();
+                }
+
+            }
+         
+            
+            else
+            {
+                player2_made_path = Fire(player2, grid);
+            }
+            
+            if (player2_made_path)
+            {
+                power_bar1.DecreaseHealth();
+                player2_made_path = false;
+            }
+            
         }
         
+        
+     
+      
         
         
         if (player1_made_path)
         {
             power_bar2.DecreaseHealth();
         }
-        if (player2_made_path)
-        {
-            power_bar1.DecreaseHealth();
-        }
+       
         
         
         
