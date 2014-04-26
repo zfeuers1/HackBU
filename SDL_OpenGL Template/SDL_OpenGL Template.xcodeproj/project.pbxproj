@@ -11,6 +11,7 @@
 		14798D35190B3A070081C96A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14798D33190B3A070081C96A /* Player.cpp */; };
 		14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CB190B2DB100642EFA /* SDL_image.framework */; };
 		14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CC190B2DB100642EFA /* SDL.framework */; };
+		92123941190B3EC900F31DBF /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9212393F190B3EC900F31DBF /* Render.cpp */; };
 		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
 		92FDEA0E190A28D100DD9DFC /* SDL_OpenGL_Template.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */; };
 		92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */; };
@@ -39,6 +40,8 @@
 		14798D34190B3A070081C96A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		14DEA6CB190B2DB100642EFA /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
 		14DEA6CC190B2DB100642EFA /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
+		9212393F190B3EC900F31DBF /* Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
+		92123940190B3EC900F31DBF /* Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Render.h; sourceTree = "<group>"; };
 		92A3D0F9190AF0D60097134E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = background.bmp; path = ../background.bmp; sourceTree = "<group>"; };
 		92A3D0FA190AF34A0097134E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		92FDEA08190A28D100DD9DFC /* SDL_OpenGL Template */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SDL_OpenGL Template"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				92FDEA0B190A28D100DD9DFC /* main.cpp */,
+				9212393F190B3EC900F31DBF /* Render.cpp */,
+				92123940190B3EC900F31DBF /* Render.h */,
 				92A3D0FA190AF34A0097134E /* background.png */,
 				92A3D0F9190AF0D60097134E /* background.bmp */,
 				92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */,
@@ -160,6 +165,7 @@
 				14798D35190B3A070081C96A /* Player.cpp in Sources */,
 				14798D32190B390F0081C96A /* Box.cpp in Sources */,
 				92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */,
+				92123941190B3EC900F31DBF /* Render.cpp in Sources */,
 				92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
