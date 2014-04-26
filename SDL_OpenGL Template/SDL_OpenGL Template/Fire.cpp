@@ -68,7 +68,7 @@ bool Fire(Player &player, Box GameBoard[][8])
         //Box target = GameBoard[0][player.array_position];
         GameBoard[0][player.array_position].claimed = true;
         
-        shrinkBox(GameBoard[0][player.array_position]);
+        //shrinkBox(GameBoard[0][player.array_position]);
         //targets_to_be_destroyed[target_count] = &GameBoard[0][player.array_position];
         
         target_coordinates_to_be_destroyed[target_count].x = GameBoard[0][player.array_position].array_position_x;
@@ -214,7 +214,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
             
             GameBoard[box.array_position_x ][box.array_position_y - 1].claimed = true;
 
-            shrinkBox(GameBoard[box.array_position_x ][box.array_position_y - 1]);
+            //shrinkBox(GameBoard[box.array_position_x ][box.array_position_y - 1]);
 //
 
             
@@ -247,7 +247,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
             GameBoard[box.array_position_x ][box.array_position_y + 1].claimed = true;
             
         
-            shrinkBox(GameBoard[box.array_position_x ][box.array_position_y + 1]);
+            //shrinkBox(GameBoard[box.array_position_x ][box.array_position_y + 1]);
 
             
             
@@ -286,7 +286,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
                 
                 GameBoard[box.array_position_x + 1 ][box.array_position_y].claimed = true;
          
-                shrinkBox(GameBoard[box.array_position_x + 1 ][box.array_position_y]);
+                //shrinkBox(GameBoard[box.array_position_x + 1 ][box.array_position_y]);
                 
                 
                 *count += 1;
@@ -320,7 +320,7 @@ void SearchNeighborsOfBox(Box &box, Box GameBoard[][8], array_coordinate *target
                 targets_to_be_destroyed[*count].claimed = true;
                 GameBoard[box.array_position_x - 1 ][box.array_position_y].claimed = true;
                 
-                shrinkBox(GameBoard[box.array_position_x - 1 ][box.array_position_y]);
+                //shrinkBox(GameBoard[box.array_position_x - 1 ][box.array_position_y]);
                 
                 
                 *count += 1;
