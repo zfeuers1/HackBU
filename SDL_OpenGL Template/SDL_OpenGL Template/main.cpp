@@ -35,15 +35,7 @@ int main(int argc, char * argv[])//** argv
 
     //game is 600 by 500 starting at (100,75)
 
-    Box firstBox;
-    firstBox.x = 100;
-    firstBox.y = 100;
-    firstBox.width = 200;
-    firstBox.height = 200;
-    firstBox.color.R = 200;
-    firstBox.color.G = 150;
-    firstBox.color.B = 20;
-    firstBox.color.A = 255;
+    Box firstBox(100,100);
 
 
     
