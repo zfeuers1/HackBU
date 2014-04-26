@@ -7,11 +7,15 @@
 //
 
 #include "Player.h"
+#include "Box.h"
 
-int jump = 82;
+#define BoxHeight 75
+#define positions 4
+
+int jump = BoxHeight + 5;
 
 void Player::moveDown(){
-    if (position != 3) {
+    if (position != positions - 1) {
         y = y + jump;
         position++;
         array_position ++;
@@ -28,23 +32,23 @@ void Player::moveUp(){
 
 Player::Player(bool whichPlayer){
     if (whichPlayer == 0) {
-        x = 120;
-        color.R = 245;
-        color.G = 244;
+        x = 65;
+        color.R = 255;
+        color.G = 104;
         color.B = 11;
-        color.A = 255;
+        color.A = 65;
         player = 0;
     }else{
-        x = 450;
+        x = 500;
         color.R = 110;
         color.G = 144;
-        color.B = 101;
-        color.A = 255;
+        color.B = 255;
+        color.A = 65;
         player = 1;
     }
-    
-    y = 115;
+    height = 35;
+    width = 35;
+    y = (BoxHeight / 2) + 100 - (height/2);
     position = 0;
-    height = 20;
-    width = 20;
+    
 }
