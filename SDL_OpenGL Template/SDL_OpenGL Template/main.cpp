@@ -107,21 +107,7 @@ int main(int argc, char * argv[])//** argv
     cout << "SDL is Running\n";
     cout << "OpenGL is Running\n";
 
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     bool runProgram = true;
-
-
     
     
     player_input input;
@@ -418,9 +404,9 @@ void Render_Background_Image(GLuint textureID)
     int Height = 650;
     
     glEnable(GL_TEXTURE_2D);
+    
     glBegin(GL_QUADS);
-    //glColor4b(255, 255, 255, 0);
-    glColor4f(1,1,1,1);
+    glColor4f(1, 1, 1, 1);
     glTexCoord2f(0, 0); glVertex3f(X, Y, 0);
     glTexCoord2f(1, 0); glVertex3f(X + Width, Y, 0);
     glTexCoord2f(1, 1); glVertex3f(X + Width, Y + Height, 0);
