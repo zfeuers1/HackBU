@@ -300,8 +300,49 @@ int main(int argc, char * argv[])//** argv
         
         
     }//end while
-    
-    
+    menu = true;
+    while (menu) {
+        
+        start_time = SDL_GetTicks();
+        
+		get_keyboard_input(&input);
+        
+        if (input.start)
+        {
+            menu = false;
+            
+        }
+        if (input.quit)
+        {
+            menu = false;
+            runProgram = false;
+            
+        }
+        
+        
+        
+        
+        
+        //Render to the screen
+		glClear(GL_COLOR_BUFFER_BIT);
+		glPushMatrix();//start phase
+		glOrtho(0,SCREENWIDTH,SCREENHEIGHT,0,-1,1);//set the matrix
+        /////////////////////////////////////////////
+        
+        Render_Background_Image(texture);
+        
+        RenderBearcat();
+        
+        
+        
+        ///////////////////////////////////////////
+		glPopMatrix();//end
+		SDL_GL_SwapBuffers();//re-drawsf
+        
+        LimitFrameRate(max_FPS, start_time);
+        
+    }
+
     
     SDL_Quit();
     cout << "SDL quit\n";
