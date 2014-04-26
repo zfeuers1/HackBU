@@ -53,3 +53,5 @@ void RenderPlayer(Player &player){
     glEnd();
     
 }
+
+void RenderConnection(
