@@ -12,8 +12,6 @@
 
 using namespace std;
 
-
-
 Box::Box(int xCord, int yCord){
     
     int random;
@@ -38,3 +36,4 @@ Box::Box(int xCord, int yCord){
         color.A= 255;
     }
 }
+
