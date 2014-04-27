@@ -1,7 +1,7 @@
-##HackBU
-Binghamton University
+##Hax -- HackBU
+######Binghamton University
 
-###Hax is a fast-paced retro game with intense multiplayer action.  Strategize to take down your opponent by finding a path to the other side.
+###A fast-paced retro game with intense multiplayer action.  Strategize to take down your opponent by finding a path to the other side.
 
 Pathfinding, and retro gaming: what more could a HackBU Hacker ask for?
 
