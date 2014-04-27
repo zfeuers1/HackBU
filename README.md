@@ -22,6 +22,6 @@ Player 2 Controls: Up Arrow = up, Down Arrow = down, Right Shift = fire
 
 ######Links:
 
-Project Description: http://challengepost.com/software/hax
+Project Submission: http://challengepost.com/software/hax
 
 Video: https://www.youtube.com/watch?v=lKs152daMQQ
