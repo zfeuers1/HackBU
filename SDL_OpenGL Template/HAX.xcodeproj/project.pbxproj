@@ -11,19 +11,19 @@
 		14798D35190B3A070081C96A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14798D33190B3A070081C96A /* Player.cpp */; };
 		14DEA6CD190B2DB100642EFA /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CB190B2DB100642EFA /* SDL_image.framework */; };
 		14DEA6CE190B2DB100642EFA /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEA6CC190B2DB100642EFA /* SDL.framework */; };
-		92123941190B3EC900F31DBF /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9212393F190B3EC900F31DBF /* Render.cpp */; };
-		92123945190B627B00F31DBF /* Fire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123943190B627B00F31DBF /* Fire.cpp */; };
-		92123948190BB35600F31DBF /* FrameRate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123946190BB35600F31DBF /* FrameRate.cpp */; };
+		14ED6061190D5A9A0068F2B8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
+		14ED6062190D5A9A0068F2B8 /* FrameRate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123946190BB35600F31DBF /* FrameRate.cpp */; };
+		14ED6063190D5A9B0068F2B8 /* Fire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123943190B627B00F31DBF /* Fire.cpp */; };
+		14ED6067190D5B050068F2B8 /* Reduce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271F190BE14E00D7B806 /* Reduce.cpp */; };
+		14ED6068190D5B050068F2B8 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9212393F190B3EC900F31DBF /* Render.cpp */; };
+		14ED6069190D5B050068F2B8 /* keyboard_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */; };
 		9212394B190BC60B00F31DBF /* PowerBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92123949190BC60B00F31DBF /* PowerBar.cpp */; };
 		92A193A9190C4BFF00F28C22 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A193A8190C4BFF00F28C22 /* AVFoundation.framework */; };
-		92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA0B190A28D100DD9DFC /* main.cpp */; };
 		92FDEA0E190A28D100DD9DFC /* SDL_OpenGL_Template.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92FDEA0D190A28D100DD9DFC /* SDL_OpenGL_Template.1 */; };
 		92FDEA1C190A29EC00DD9DFC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1B190A29EC00DD9DFC /* Cocoa.framework */; };
 		92FDEA1E190A29F500DD9DFC /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA1D190A29F500DD9DFC /* OpenGL.framework */; };
 		92FDEA1F190A2A5600DD9DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FDEA19190A29E700DD9DFC /* Foundation.framework */; };
 		92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FDEA17190A296100DD9DFC /* SDLMain.m */; };
-		C0E2271E190B4CA000D7B806 /* keyboard_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271C190B4CA000D7B806 /* keyboard_input.cpp */; };
-		C0E22721190BE14E00D7B806 /* Reduce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E2271F190BE14E00D7B806 /* Reduce.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -194,16 +194,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0E22721190BE14E00D7B806 /* Reduce.cpp in Sources */,
-				92123945190B627B00F31DBF /* Fire.cpp in Sources */,
+				14ED6067190D5B050068F2B8 /* Reduce.cpp in Sources */,
+				14ED6068190D5B050068F2B8 /* Render.cpp in Sources */,
+				14ED6069190D5B050068F2B8 /* keyboard_input.cpp in Sources */,
+				14ED6061190D5A9A0068F2B8 /* main.cpp in Sources */,
+				14ED6062190D5A9A0068F2B8 /* FrameRate.cpp in Sources */,
+				14ED6063190D5A9B0068F2B8 /* Fire.cpp in Sources */,
 				9212394B190BC60B00F31DBF /* PowerBar.cpp in Sources */,
 				14798D35190B3A070081C96A /* Player.cpp in Sources */,
 				14798D32190B390F0081C96A /* Box.cpp in Sources */,
 				92FDEA20190A2F4C00DD9DFC /* SDLMain.m in Sources */,
-				92123941190B3EC900F31DBF /* Render.cpp in Sources */,
-				92123948190BB35600F31DBF /* FrameRate.cpp in Sources */,
-				92FDEA0C190A28D100DD9DFC /* main.cpp in Sources */,
-				C0E2271E190B4CA000D7B806 /* keyboard_input.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
